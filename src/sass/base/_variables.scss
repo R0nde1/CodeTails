@@ -1,5 +1,32 @@
+@font-face {
+    font-family: "Poppins";
+    src: rl('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+}
 
-    @font-face {
-        font-family: "Poppins";
-        src: rl('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-      }
+/**
+  |============================
+  | Colors
+  |============================
+*/
+$black-color: #000000;
+$black-color-25: rgba(0, 0, 0, 0.25);
+$black-color-80: rgba(0, 0, 0, 0.8);
+$main-black-color: #202025;
+$main-black-color-80: rgba(32, 32, 37, 0.8);
+$main-dark--color: #000917;
+$secondary-dark-color: #15141D;
+$white-color: #ffffff;
+$main-white-color: #FCFCFC;
+$main-white-color-40: rgba(252, 252, 252, 0.4);
+$main-white-color-80: rgba(252, 252, 252, 0.8);
+$secondary-white-color: #F5F5F5;
+$grapefruit-color: #FD5103;
+$main-orange-color: #FE7031;
+$secondary-orange-color: #FF8650;
+$main-grey-color: #5F6775;
+$main-grey-color-40: rgba(95, 103, 117, 0.4);
+$main-grey-color-25: rgba(95, 103, 117, 0.25);
+$secondary-grey-color: #BDBDBD;
+$pagin-border-light: #EAEBEA;
+$pagin-border-dark: #4F4E4E;
+$pagin-background: #FDFDFD;
