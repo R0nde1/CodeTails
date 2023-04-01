@@ -13,7 +13,7 @@ export function fetchRandomCocktails(amount) {
 export function fetchCocktailsByName(name) {
     return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
         .then(response => response.json())
-        .then((drinks) => {
+        .then(({drinks}) => {
             if(!drinks) throw 'Sorry';
 
             return drinks;
