@@ -3,25 +3,15 @@
   | Colors
   |============================
 */
-$black-color: #000000;
-$black-color-25: rgba(0, 0, 0, 0.25);
-$black-color-80: rgba(0, 0, 0, 0.8);
-$main-black-color: #202025;
-$main-black-color-80: rgba(32, 32, 37, 0.8);
-$main-dark--color: #000917;
-$secondary-dark-color: #15141D;
-$white-color: #ffffff;
-$main-white-color: #FCFCFC;
-$main-white-color-40: rgba(252, 252, 252, 0.4);
-$main-white-color-80: rgba(252, 252, 252, 0.8);
-$secondary-white-color: #F5F5F5;
-$grapefruit-color: #FD5103;
-$main-orange-color: #FE7031;
-$secondary-orange-color: #FF8650;
-$main-grey-color: #5F6775;
-$main-grey-color-40: rgba(95, 103, 117, 0.4);
-$main-grey-color-25: rgba(95, 103, 117, 0.25);
-$secondary-grey-color: #BDBDBD;
-$pagin-border-light: #EAEBEA;
-$pagin-border-dark: #4F4E4E;
-$pagin-background: #FDFDFD;
+$main-black: #202025; // Всюди, де ви бачите чорний!
+$main-black-80: rgba(32, 32, 37, 0.8); // Підзаголовок світлої теми
+$main-white: #FCFCFC; // Основний білий + ховер кнопки
+$main-white-80: rgba(252, 252, 252, 0.8); // Підзаголовок темної теми
+$main: #FD5103; // Основний оранжевий
+$secondary: #FE7031; // Pressed buttons
+$grey: #5F6775; // Основний сірий
+$shadow-grey-25: rgba(95, 103, 117, 0.25); // Letter shadow
+$secondary-grey: #BDBDBD; // Опис інгридієнтів і коктелів в модалках темна тема
+$pagin-grey-light: #EAEBEA; // Бордер пагінації світла тема
+$pagin-grey-dark: #4F4E4E; // Бордер пагінації темна тема
+$pagin-grey-arrow: #D7D7D7; // Світла тема
