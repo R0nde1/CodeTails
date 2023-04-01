@@ -1,34 +1,11 @@
-.backdrop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    visibility: visible;
-  }
+
+
+
   
-  .is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  .is-hidden .modal {
-    animation: none;
-  }
   .modal {
-    // &__contact {
-    //   &.hide-contact-modal {
-    //     opacity: 0;
-    //     pointer-events: none;
-    //   }
-    // }    
+   display: none;
+
     
-    }
-  
     &__title {
       text-align: left;
       font-weight: 900;
@@ -37,33 +14,33 @@
       color: #202025;
       margin-bottom: 20px;
       display: block;
-        @media screen and (min-width: $tablet) {
+        @media screen and (min-width: 720px) {
           font-size: 32px;
           line-height: calc(39 / 32);
            margin-bottom: 20px;
        }
     }
-    &__instractions{
+    &__instructions{
       text-align: left;
       font-size: 16px;
       font-weight: 600;
       line-height: calc(26 / 16);
       margin-bottom: 20px;
       color: #202025;
-      @media screen and (min-width: $tablet) {
+      @media screen and (min-width: 720px) {
           font-size: 16px;
           line-height: calc(20 / 16);
           margin-bottom: 34px;
        }
     }
-  &__paragraf{
+  &__paragraph{
     text-align: left;
       font-size: 16px;
       font-weight: 400;
       line-height: calc(28 / 16);
       margin-bottom: 32px;
       color: #5f6775; 
-      @media screen and (min-width: $tablet) {
+      @media screen and (min-width: 720px) {
         font-size: 16px;
         line-height: calc(20 / 16);
         margin-bottom: 34px;
@@ -76,64 +53,9 @@
       min-width: 280px;
       min-height: 280px;
     }
+  
+  
 
-  
-  .modal {
-    max-width: 272px;
-    width: 100%;
-    width: 528px;
-    height: 357px;
-  
-    background-color: #fff;
-    position: relative;
-    transition: transform 250ms liniar;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-top: 16px;
-    padding-bottom: 28px;
-    animation: zoom 750ms linear forwards;
-  
-  
-  
-    @media screen and (min-width: 768px) {
-      max-width: none;
-      width: 822px;
-      padding-right: 32px;
-      padding-left: 32px;
-      padding-top: 32px;
-      padding-bottom: 48px;
-      height: 505px;
-    }
-  
-    &__title {
-      font-weight: 600;
-      font-size: 20px;
-      line-height: calc(24 / 20);
-      text-align: left;
-      letter-spacing: 0.03em;
-      color: #000000;
-      margin-bottom: 14px;
-      display: block;
-      @media screen and (min-width: 768px) {
-        font-size: 32px;
-        line-height: calc(39 / 32);
-        margin-bottom: 24px;
-      }
-    }
-    &__paragraf {
-      font-size: 12px;
-      line-height: calc(14 / 12);
-      margin-bottom: 18px;
-      text-align: left;
-      color: #5c5c5c;
-      @media screen and (min-width: 768px) {
-        font-size: 16px;
-        line-height: calc(19 / 16);
-        margin-bottom: 32px;
-      }
-    }
-
-  
     &__button {
       width: 18px;
       height: 18px;
@@ -222,3 +144,6 @@
     }
   }
 }
+.show-modal {
+  display: block;
+  }
