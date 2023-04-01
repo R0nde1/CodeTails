@@ -1,25 +1,34 @@
-const refs = {
-    searchForm: document.querySelector('.search-form'),
-    searchInput: document.querySelector('.search-form__input')
-}
+import { fetchCocktailsByName } from "./fetch-cocktails";
+import { getDrinksMarkup } from "./get-drinks-markup";
 
-refs.searchForm.addEventListener('submit', getCocktails)
+const searchForms = document.querySelectorAll('.search-form');
+const contentResults = document.querySelector('#content-results');
+const contentTitle = document.querySelector('#content-title');
+
+const mainSearch = searchForms[0];
+const mobSearch = searchForms[1];
+
+mainSearch.addEventListener('submit', getCocktails);
+mobSearch.addEventListener('submit', getCocktails);
+
+mainSearch.addEventListener('input', () => {
+  mobSearch.elements.search.value = mainSearch.elements.search.value;
+});
+
+mobSearch.addEventListener('input', () => {
+  mainSearch.elements.search.value = mobSearch.elements.search.value;
+});
 
 function getCocktails(event) {
-    event.preventDefault();
-    const cocktailName = refs.searchInput.value;
+  event.preventDefault();
+  const cocktailName = event.target.elements.search.value;
 
-    fetchCocktail(cocktailName)
-}
-
-function fetchCocktail(cocktailName) {
-    console.log(cocktailName);
-    return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`)
-    .then(result => {
-    if (!result.ok) {
-      throw new Error("Sorry, we didn't find any cocktail for you");
-    }
-      return result.json();
-    }
-  );
+  fetchCocktailsByName(cocktailName)
+    .then(data => {
+      contentTitle.innerHTML = 'Searching results';
+      contentResults.innerHTML = getDrinksMarkup(data);
+    })
+    .catch(() => {
+      contentResults.innerHTML = 'Sorry';
+    })
 }
