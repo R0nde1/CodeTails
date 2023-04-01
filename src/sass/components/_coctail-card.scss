@@ -72,7 +72,7 @@
     padding: 0;
     transition: all 250ms ease-in;
     &:hover {
-        background-color: $main;
+        background-color: $main-white;
         filter: none;
     }
     @media screen and (min-width: 768px) {
