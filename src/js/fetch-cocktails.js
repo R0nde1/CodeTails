@@ -9,3 +9,13 @@ export function fetchRandomCocktails(amount) {
         return data.map(item => item.drinks[0]);
     })
 }
+
+export function fetchCocktailsByName(name) {
+    return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
+        .then(response => response.json())
+        .then((drinks) => {
+            if(!drinks) throw 'Sorry';
+
+            return drinks;
+        })
+}
