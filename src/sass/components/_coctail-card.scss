@@ -1,41 +1,11 @@
-.coctails__title {
-    font-family: 'Poppins',sans-serif;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: calc(42 / 22);
-    text-align: center;
-    color: var(--white-color);
-
-    display: block;
-    margin: 0 auto 60px auto;
-
-    @media screen and (min-width: 1280px) {
-        font-size: 48px;
-        line-height: calc(72 / 48);
-    }
-}
-
-.coctails__list {
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-
-    @media screen and (min-width: 768px) {
-        gap: 32px;
-    }
-}
-
-.coctails__item {
+.cocktails__item {
     display: block;
     margin: 0;
     max-width: 280px;
     height: 450px;
     list-style: none;
 
-    border: 1px solid var(--grapefruit-color);
+    border: 1px solid $grapefruit-color;
     border-radius: 4px;
     overflow: hidden;
     transition: scale 250ms ease-in;
@@ -55,7 +25,7 @@
     }
 }
 
-.coctails__img {
+.cocktails__img {
     margin: 0 0 48px 0;
     max-width: 280px;
     height: auto;
@@ -75,17 +45,19 @@
     }
 }
 
-.coctails__name {
+.cocktails__name {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-size: 26px;
     line-height: calc(42 / 26);
     text-align: center;
-    color: var(--main-black-color);
+    color: $main-black-color;
     transition: text-shadow 250ms ease-in;
+    margin: 0 0 16px 0;
 
     @media screen and (min-width: 768px) {
         line-height: calc(33 / 26);
+        margin-bottom: 25px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -101,11 +73,11 @@
     line-height: calc(24 / 14);
     text-align: center;
     letter-spacing: 0.02em;
-    color: var(--white-color);
-    background: var(--main-orange-color);
+    color: $white-color;
+    background: $main-orange-color;
     border-radius: 4px;
     border: 1px solid transparent;
-    filter: drop-shadow(0px 4px 4px var(--black-color-25));
+    filter: drop-shadow(0px 4px 4px $black-color-25);
 
     width: 108px;
     height: 40px;
@@ -113,7 +85,7 @@
     transition: all 250ms ease-in;
 
     &:hover {
-        background-color: var(--grapefruit-color);
+        background-color: $grapefruit-color;
         filter: none;
     }
 
@@ -129,9 +101,9 @@
     line-height: calc(24 / 14);
     text-align: center;
     letter-spacing: 0.02em;
-    color: var(--grapefruit-color);
+    color: $grapefruit-color;
     background: transparent;
-    border: 1px solid var(--grapefruit-color);
+    border: 1px solid $grapefruit-color;
     border-radius: 4px;
 
     width: 108px;
@@ -139,7 +111,7 @@
     padding: 0;
 
     &:hover {
-        border: 2px solid var(--grapefruit-color);
+        border: 2px solid $grapefruit-color;
     }
     @media screen and (min-width: 768px) {
         width: 123px;
@@ -147,14 +119,7 @@
     }
 }
 
-.coctails__name {
-    margin: 0 0 16px 0;
-    @media screen and (min-width: 768px) {
-        margin-bottom: 25px;
-    }
-}
-
-.coctails__btns {
+.cocktails__btns {
     display: flex;
     justify-content: center;
     gap: 7px;
@@ -162,10 +127,3 @@
         gap: 17px;
     }
 }
-
-
-
-
-
-
-
