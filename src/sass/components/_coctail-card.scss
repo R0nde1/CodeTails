@@ -1,0 +1,171 @@
+.coctails__title {
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: calc(42 / 22);
+    text-align: center;
+    color: var(--white-color);
+
+    display: block;
+    margin: 0 auto 60px auto;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 48px;
+        line-height: calc(72 / 48);
+    }
+}
+
+.coctails__list {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        gap: 32px;
+    }
+}
+
+.coctails__item {
+    display: block;
+    margin: 0;
+    max-width: 280px;
+    height: 450px;
+    list-style: none;
+
+    border: 1px solid var(--grapefruit-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: scale 250ms ease-in;
+
+    &:hover {
+        scale: 1.015;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 335px;
+        height: 541px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 394px;
+        height: 556px;
+    }
+}
+
+.coctails__img {
+    margin: 0 0 48px 0;
+    max-width: 280px;
+    height: auto;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+
+    @media screen and (min-width: 768px) {
+        max-width: 335px;
+        height: 395px;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 395px;
+        height: 395px;
+    }
+}
+
+.coctails__name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: calc(42 / 26);
+    text-align: center;
+    color: var(--main-black-color);
+    transition: text-shadow 250ms ease-in;
+
+    @media screen and (min-width: 768px) {
+        line-height: calc(33 / 26);
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 32px;
+        line-height: calc(38 / 32);
+    }
+}
+
+.btn__learn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(24 / 14);
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--white-color);
+    background: var(--main-orange-color);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    filter: drop-shadow(0px 4px 4px var(--black-color-25));
+
+    width: 108px;
+    height: 40px;
+    padding: 0;
+    transition: all 250ms ease-in;
+
+    &:hover {
+        background-color: var(--grapefruit-color);
+        filter: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 160px;
+        height: 48px;
+    }
+}
+
+.btn__delete {
+    font-family: 'Roboto',sans-serif;
+    font-size: 14px;
+    line-height: calc(24 / 14);
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--grapefruit-color);
+    background: transparent;
+    border: 1px solid var(--grapefruit-color);
+    border-radius: 4px;
+
+    width: 108px;
+    height: 40px;
+    padding: 0;
+
+    &:hover {
+        border: 2px solid var(--grapefruit-color);
+    }
+    @media screen and (min-width: 768px) {
+        width: 123px;
+        height: 48px;
+    }
+}
+
+.coctails__name {
+    margin: 0 0 16px 0;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 25px;
+    }
+}
+
+.coctails__btns {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    @media screen and (min-width: 320px) {
+        gap: 17px;
+    }
+}
+
+
+
+
+
+
+
