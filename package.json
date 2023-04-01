@@ -5,7 +5,7 @@
   "homepage": "https://R0nde1.github.io/Codetails",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Codetails/"
+    "build": "parcel build src/*.html --public-url ./"
   },
 
   
