@@ -19,7 +19,7 @@ function fetchCocktail(cocktailName) {
     if (!result.ok) {
       throw new Error("Sorry, we didn't find any cocktail for you");
     }
-      return result.json();ч
+      return result.json();
     }
   );
 }
