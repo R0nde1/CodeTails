@@ -2,7 +2,7 @@
     display: block;
     margin: 0;
     max-width: 280px;
-    height: 450px;
+    height: 449px;
     list-style: none;
     border: 1px solid $main;
     border-radius: 4px;
@@ -12,28 +12,26 @@
         scale: 1.015;
     }
     @media screen and (min-width: 768px) {
-        max-width: 335px;
+        width: 335px;
         height: 541px;
     }
     @media screen and (min-width: 1280px) {
-        max-width: 394px;
+        width: 394px;
         height: 556px;
     }
 }
 .cocktails__img {
     margin-bottom: 48px;
-    max-width: 280px;
-    height: auto;
+    width: 100%;
+    height: 280px;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
     display: block;
     @media screen and (min-width: 768px) {
-        max-width: 335px;
         height: 395px;
         margin-bottom: 20px;
     }
     @media screen and (min-width: 1280px) {
-        max-width: 395px;
         height: 395px;
     }
 }
@@ -74,6 +72,11 @@
     &:hover {
         background-color: $main-white;
         filter: none;
+        color: $main;
+    }
+    &:active {
+        color: $main-white;
+        background-color: $main;
     }
     @media screen and (min-width: 768px) {
         width: 160px;
@@ -88,13 +91,19 @@
     letter-spacing: 0.02em;
     color: $main;
     background: transparent;
-    border: 1px solid $main;
+    border: 2px solid $main;
     border-radius: 4px;
     width: 108px;
     height: 40px;
     padding: 0;
     &:hover {
         border: 2px solid $main;
+        border-radius: 5px;
+        background-color: $main-white;
+    }
+    &:active {
+        border: 1px solid $main;
+        border-radius: 4px;
     }
     @media screen and (min-width: 768px) {
         width: 123px;
