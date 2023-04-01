@@ -1,0 +1,94 @@
+.hero__info{
+    display: block;
+    margin-right: 59px;
+}
+.hero__title {
+  color: #FD5103;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.91;
+  
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+    line-height: 1.62;
+    margin-bottom: 22px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 52px;
+    line-height: 1.54;
+  }
+}
+picture {
+  margin-bottom: 60px;
+}
+
+.hero__section {
+  // width: 100%;
+}
+
+.hero__box {
+  width: 100%;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: row-reverse
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 120px;
+  }
+}
+
+.symbol__panel {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+  }
+}
+
+.first__line {
+  display: flex;
+  gap: 4px;
+}
+.number__line {
+  display: flex;
+  gap: 4px;
+}
+
+.keyboard__item {
+}
+
+.symbol__select {
+  display: block;
+  width: 93px;
+  height: 34px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+select {
+  width: 100%;
+}
+.choice__label {
+  // color: $main-black;
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.56;
+  }
+}
