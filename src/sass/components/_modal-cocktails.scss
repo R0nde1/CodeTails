@@ -162,9 +162,18 @@
 
 
 .modal__button{
+  display: flex;
+  background: none;
+  border: none;
   position: absolute;
   top: 16px;
   right: 16px;
+  
+  &:hover{
+    stroke: $main;
+    fill: $main;
+  }
+
 
   @media screen and (min-width: 768px) {
     top: 12px;
