@@ -10,7 +10,7 @@ export function getDrinksMarkup(array) {
 
 function getCardMarkup(name, imageSrc, id) {
     return (`
-<li class="cocktails__item">
+<li id="${id}" class="cocktails__item">
     <img class="cocktails__img" src="${imageSrc}" alt="cocktail"/>
     <div class="cocktails__descr">
         <h3 class="cocktails__name">${name}</h3>
@@ -22,6 +22,8 @@ function getCardMarkup(name, imageSrc, id) {
 </li>
 `)
 }
+
+
 export function handleCardClick(event) {
     
     if (event.target.name === 'learn-more') {
