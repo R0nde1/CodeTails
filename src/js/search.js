@@ -1,6 +1,6 @@
 import { calculateCocktails } from './calculate';
 import { fetchCocktailsByName } from './fetch-cocktails';
-import { getDrinksMarkup } from './get-drinks-markup';
+import { getDrinksMarkup, getErrorMarkup } from './get-drinks-markup';
 import { createPagination } from './pagination';
 
 const searchForms = document.querySelectorAll('.search-form');
@@ -26,12 +26,15 @@ let searchResults;
 function getCocktails(event) {
   event.preventDefault();
   const cocktailName = event.target.elements.search.value;
+
+  contentTitle.innerHTML = 'Searching results..';
+  contentResults.innerHTML = '';
   const numberOfCocktails = calculateCocktails();
 
   fetchCocktailsByName(cocktailName)
     .then(data => {
       searchResults = data;
-      contentTitle.innerHTML = 'Searching results';
+      contentTitle.innerHTML = 'Cocktails';
       contentResults.innerHTML = getDrinksMarkup(
         data.slice(0, numberOfCocktails)
       );
@@ -42,8 +45,9 @@ function getCocktails(event) {
       );
       addPaginationListeners();
     })
-    .catch(() => {
-      contentResults.innerHTML = 'Sorry';
+    .catch((error) => {
+      contentTitle.innerHTML = error
+      contentResults.innerHTML = getErrorMarkup()
     });
 }
 
