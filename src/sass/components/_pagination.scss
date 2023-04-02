@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   gap: 14px;
+  margin-top: 60px;
   justify-content: center;
   align-items: center;
 }
@@ -55,12 +56,10 @@
     border-radius: 4px;
     width: 60px;
     height: 40px;
-    margin-left: 108px;
   }
   @media screen and (min-width: 1280px) {
     width: 60px;
     height: 40px;
-    margin-left: 198px;
   }
 }
 
@@ -100,9 +99,9 @@
   color: $main-white;
   cursor: not-allowed;
   background-color: $secondary;
- }
+}
 .left-arrow.inactive,
 .right-arrow.inactive {
   background-color: $main-white;
   color: $pagin-grey-arrow;
-  }
+}
