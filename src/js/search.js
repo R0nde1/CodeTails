@@ -67,7 +67,7 @@ function addPaginationListeners() {
   const pageElements = document.querySelectorAll('.pagination__number');
   for (const el of pageElements) {
     if (el.className.includes('inactive')) continue;
-    el.addEventListener('click', changePage)
+    el.addEventListener('click', changePage);
   }
 
 }
