@@ -1,4 +1,5 @@
 .ingredients {
+  display: none;
   position: relative;
   background-color: $main-white;
   padding: 40px 20px;
@@ -70,6 +71,13 @@
   }
 }
 
+.ingredients__line-container {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+}
+
 .ingredients__line {
   @media screen and (max-width: 767px) {
     display: none;
@@ -77,6 +85,8 @@
 
   @media screen and (min-width: 768px) {
     border: 1px solid $main;
+    position: relative;
+    width: 100%;
   }
 }
 
@@ -141,4 +151,8 @@
   width: 32px;
   border: none;
   background: transparent;
+}
+
+.show-modal {
+  display: block;
 }
