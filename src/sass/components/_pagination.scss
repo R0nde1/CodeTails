@@ -42,13 +42,13 @@
 .left-arrow,
 .right-arrow {
   color: $secondary;
+  border: none;
+  border-radius: 0px;
   width: 24px;
   height: 24px;
-  border: none;
-  border-radius: 0;
   font-size: 20px;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
     border: 1px solid $main-white;
@@ -67,7 +67,7 @@
 .right-arrow {
   margin-left: 12px;
   @media screen and (min-width: 768px) {
-    border: 1px solid $main-white;
+    border: 1px solid $pagin-grey-light;
     border-radius: 4px;
     width: 60px;
     height: 40px;
@@ -77,17 +77,17 @@
   @media screen and (min-width: 1280px) {
     width: 60px;
     height: 40px;
-    margin-right: 198px;
+    margin-left: 198px;
   }
 }
 .left-arrow {
   margin-right: 12px;
   @media screen and (min-width: 768px) {
-    border: 1px solid $main-white;
+    border: 1px solid $pagin-grey-light;
     border-radius: 4px;
     width: 60px;
     height: 40px;
-    margin-right: 168px;
+    margin-right: 108px;
   }
   @media screen and (min-width: 1280px) {
     width: 60px;
@@ -97,10 +97,12 @@
 }
 
 .inactive {
-  color: $pagin-grey-arrow;
+  color: $main-white;
   cursor: not-allowed;
-  &:hover {
-    color: $pagin-grey-arrow;
-    background-color: $main-white;
+  background-color: $secondary;
+ }
+.left-arrow.inactive,
+.right-arrow.inactive {
+  background-color: $main-white;
+  color: $pagin-grey-arrow;
   }
-}
