@@ -1,3 +1,18 @@
+.hero__box {
+  width: 100%;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 120px;
+  }
+}
+
 .hero__info {
   display: block;
   margin-right: 59px;
@@ -11,7 +26,7 @@
   }
 }
 .hero__mobtitle {
-  color: #fd5103;
+  color: $main;
   font-family: 'Poppins';
   font-size: 22px;
   font-weight: 600;
@@ -23,11 +38,9 @@
 }
 .hero__title {
   display: none;
-  color: #fd5103;
+  color: $main;
   font-family: 'Poppins';
   font-weight: 600;
-  line-height: 1.91;
-
   @media screen and (min-width: 768px) {
     display: block;
     font-size: 26px;
@@ -45,21 +58,9 @@
 }
 
 .hero__section {
-  // width: 100%;
-}
-
-.hero__box {
-  width: 100%;
   margin-bottom: 40px;
-
   @media screen and (min-width: 768px) {
-    margin-bottom: 120px;
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 120px;
+    margin-bottom: 60px;
   }
 }
 
@@ -73,7 +74,6 @@
 .first__line {
   display: flex;
   gap: 4px;
-  width: 324px;
 }
 .number__line {
   display: flex;
@@ -82,22 +82,28 @@
 }
 
 .keyboard__item {
+  color: $grey;
   width: 24px;
   height: 25px;
-  display: flex;
-  gap: 1px;
-
-  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
   font-size: 14px;
   line-height: 1.5;
   @media screen and (min-width: 1280px) {
-    width: 39px;
+    width: 40px;
     height: 40px;
-    font-weight: 700;
-    gap: 0;
     font-size: 24px;
   }
+}
+.keyboard__item:hover,
+.keyboard__item:focus {
+  color: $main;
+  border: 1px solid $grey;
+  text-shadow: $shadow-grey-25;
 }
 
 .symbol__select {
@@ -113,23 +119,29 @@
 }
 select {
   width: 100%;
+  border: 1px solid $main;
+  border-radius: 4px;
+  color: $main;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.35;
 }
+
 .choice__label {
-  // color: $main-black;
+  font-family: 'Poppins';
+  color: $main-black-80;
   display: block;
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
   letter-spacing: 0.02em;
-  opacity: 0.8;
   margin-bottom: 20px;
-  margin-left: 0px;
-  // margin-right: auto;
-  width: 280px;
+  text-align: center;
   @media screen and (min-width: 768px) {
-    margin-left: 0;
     margin-bottom: 40px;
-    font-size: 14px;
+    text-align: left;
   }
   @media screen and (min-width: 1280px) {
     font-size: 18px;
