@@ -3,23 +3,30 @@
   position: relative;
   background-color: $main-white;
   padding: 40px 20px;
+  width: 100%;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  @media screen and (min-width: 480px) {
-    width: 100%;
-    height: 100%;
-  }
+  top: 0;
+  left: 0;
+  overflow: auto;
+  height: 100vh;
 
   @media screen and (min-width: 768px) {
-    width: 822px;
+    padding: 40px 28px;
+    max-width: 822px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: auto;
-    padding-top: 40px;
-    padding-right: 28px;
-    padding-bottom: 28px;
-    padding-left: 28px;
+  }
+}
+
+.modal__cocktail {
+
+  @media screen and (min-width: 768px) {
+    --img-size: 288px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 }
 
@@ -34,10 +41,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: calc(26 / 16);
+
   @media screen and (min-width: 768px) {
-    margin-bottom: 40px;
+    
   }
 }
+
 .ingredientsBlack {
   color: $main-black;
 }
@@ -51,7 +60,14 @@
 
   color: $main-black;
 }
-
+.modal__instructions-hold {
+  
+  @media screen and (min-width: 768px) {
+    order: 1;
+    margin-bottom: 40px;
+    max-width: 615px;
+  }
+}
 .modal__instructions {
   margin: 20px 0;
 
@@ -59,14 +75,58 @@
   font-size: 16px;
   line-height: calc(24 / 16);
   text-transform: uppercase;
-
   color: $main-black;
 
   @media screen and (min-width: 768px) {
-    margin-top: 28px;
-    margin-bottom: 40px;
+    
   }
 }
+
+.modal__picture {
+  width: 100%;
+  max-width: 280px;
+  max-height: 280px;
+  
+  @media screen and (min-width: 768px) {
+    width: auto;
+    height: 100%;
+    max-width: var(--img-size);
+    max-height: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.modal__ingredients-hold {
+  
+  @media screen and (min-width: 768px) {
+    min-height: 252px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal__title,
+  .modal__ingredients-hold {
+    padding-left: var(--img-size);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .instruction {
   color: $grey;
@@ -75,8 +135,7 @@
   line-height: calc(28 / 16);
 
   @media screen and (min-width: 768px) {
-    margin-top: 28px;
-    margin-bottom: 28px;
+    
   }
 }
 
@@ -94,16 +153,19 @@
   line-height: calc(24 / 20);
 
   letter-spacing: 0.02em;
+
   @media screen and (min-width: 768px) {
-    display: block;
     margin-left: auto;
+    order: 2;
   }
 }
+
 
 .modal__button{
   position: absolute;
   top: 16px;
   right: 16px;
+
   @media screen and (min-width: 768px) {
     top: 12px;
     right: 12px;
@@ -120,5 +182,4 @@
 
 .show-modal {
   display: block;
-  
-  }
+}
