@@ -1,149 +1,124 @@
+.modal {
+  display: none;
+  position: relative;
+  background-color: $main-white;
+  padding: 40px 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-
-
-  
-  .modal {
-   display: none;
-
-    
-    &__title {
-      text-align: left;
-      font-weight: 900;
-      font-size: 32px;
-      line-height: calc(38 / 32);
-      color: #202025;
-      margin-bottom: 20px;
-      display: block;
-        @media screen and (min-width: 720px) {
-          font-size: 32px;
-          line-height: calc(39 / 32);
-           margin-bottom: 20px;
-       }
-    }
-    &__instructions{
-      text-align: left;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: calc(26 / 16);
-      margin-bottom: 20px;
-      color: #202025;
-      @media screen and (min-width: 720px) {
-          font-size: 16px;
-          line-height: calc(20 / 16);
-          margin-bottom: 34px;
-       }
-    }
-  &__paragraph{
-    text-align: left;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: calc(28 / 16);
-      margin-bottom: 32px;
-      color: #5f6775; 
-      @media screen and (min-width: 720px) {
-        font-size: 16px;
-        line-height: calc(20 / 16);
-        margin-bottom: 34px;
-     }
+  @media screen and (min-width: 480px) {
+    width: 100%;
+    height: 100%;
   }
-    &__picture {
-      padding-left: 42px;
-      padding-right: 42px;
-      margin-bottom: 22px;
-      min-width: 280px;
-      min-height: 280px;
-    }
-  
-  
 
-    &__button {
-      width: 18px;
-      height: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #000000;
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      color: #000000;
-      fill: #000000;
-      transition: color 250ms linear;
-      cursor: pointer;
-    }
-    &__picture {
-        padding-left: 42px;
-        padding-right: 42px;
-        margin-bottom: 16px;
-        min-width: 188px;
-        min-height: 142px;
-      }
-
-    &__button-add {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 12px 24px;
-         gap: 10px;  
-      text-align: center;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: calc(24 / 20);
-      letter-spacing: 0.2;
-      color: #fcfcfc;
-      background-color: #fd5103;
-      border-radius: 4px;
-      border: 0;
-      margin-bottom: 40px;
-      min-width: 248px;
-      height: 48px;
-      @media screen and (min-width: 768px) {
-        height: 50px;
-        min-width: 416px;
-      }
-      @media screen and (min-width: 1200px) {
-      
-      }
-      &__button-remove {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 12px 24px;
-         gap: 10px;  
-      text-align: center;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: calc(24 / 20);
-      letter-spacing: 0.2;
-      color: #fcfcfc;
-      background-color: #fd5103;
-      border-radius: 4px;
-      border: 0;
-      margin-bottom: 40px;
-      min-width: 185px;
-      height: 48px;
-        @media screen and (min-width: 768px) {
-          height: 50px;
-          min-width: 416px;
-        }
-        @media screen and (min-width: 1200px) {
-        
-        }
-    }
-  }
-  
-  @keyframes zoom {
-    0% {
-      transform: scale(0.2);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
+  @media screen and (min-width: 768px) {
+    width: 822px;
+    height: auto;
+    padding-top: 40px;
+    padding-right: 28px;
+    padding-bottom: 28px;
+    padding-left: 28px;
   }
 }
+
+.ingredients__list {
+  list-style: none;
+  padding-left: 0px;
+  margin-top: 28px;
+  margin-left: 0;
+  margin-bottom: 32px;
+
+  color: $grey;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(26 / 16);
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+.ingredientsBlack {
+  color: $main-black;
+}
+.modal__title {
+  margin: 0;
+
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-size: 32px;
+  line-height: calc(38 / 32);
+
+  color: $main-black;
+}
+
+.modal__instructions {
+  margin: 20px 0;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  text-transform: uppercase;
+
+  color: $main-black;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 28px;
+    margin-bottom: 40px;
+  }
+}
+
+.instruction {
+  color: $grey;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(28 / 16);
+
+  @media screen and (min-width: 768px) {
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+}
+
+.modal__button-add {
+  padding: 12px 24px;
+  color: $main-white;
+  background-color: $main;
+  border-radius: 4px;
+  border: none;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: calc(24 / 20);
+
+  letter-spacing: 0.02em;
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+.modal__button{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  @media screen and (min-width: 768px) {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+.modal-icon-close {
+  height: 32px;
+  width: 32px;
+  border: none;
+  background: transparent;
+}
+
+
 .show-modal {
   display: block;
+  
   }

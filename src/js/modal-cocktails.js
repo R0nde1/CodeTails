@@ -16,7 +16,7 @@ function getDrinkModalMarkup(details){
     return (`
     <button class="modal__button" data-modal-close>
                 <svg class="modal-icon-close" width="18" height="18">
-                <use href=""></use>
+                <use href="./img/sprite.svg#icon-close-line"></use>
                 </svg>
             </button>
             <div class="modal__cocktail">
@@ -28,7 +28,6 @@ function getDrinkModalMarkup(details){
                 <p> Per cocktail</p>
                 <ul class="ingredients__list" ></ul>
             <button class="modal__button-add" data-id='${details.idDrink}' type="button" data-modal-add> Add to favorite </button>
-            <button class="modal__button-remove" data-id='${details.idDrink}' type="button" data-modal-remove> Remove from favorite </button>
         </div>
     `)
 }
@@ -38,7 +37,7 @@ function getIngredientsList(details){
         let ingredient = details['strIngredient'+i];
         
         if (ingredient) {
-            ingredients += `<li class= "ingredient__item">${ingredient}</li>`;
+            ingredients += `<li class= "ingredient__item"> <span class="ingredientsBlack">✶ </span>${ingredient}</li>`;
         } else {
             break;
         }
