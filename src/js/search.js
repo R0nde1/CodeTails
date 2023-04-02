@@ -1,5 +1,5 @@
 import { fetchCocktailsByName } from "./fetch-cocktails";
-import { getDrinksMarkup } from "./get-drinks-markup";
+import { getDrinksMarkup, getErrorMarkup } from "./get-drinks-markup";
 
 const searchForms = document.querySelectorAll('.search-form');
 const contentResults = document.querySelector('#content-results');
@@ -25,10 +25,11 @@ function getCocktails(event) {
 
   fetchCocktailsByName(cocktailName)
     .then(data => {
-      contentTitle.innerHTML = 'Searching results';
+      contentTitle.innerHTML = 'Cocktails';
       contentResults.innerHTML = getDrinksMarkup(data);
     })
-    .catch(() => {
-      contentResults.innerHTML = 'Sorry';
+    .catch((error) => {
+      contentTitle.innerHTML = error
+      contentResults.innerHTML = getErrorMarkup()
     })
 }
