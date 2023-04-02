@@ -23,6 +23,9 @@ function getCocktails(event) {
   event.preventDefault();
   const cocktailName = event.target.elements.search.value;
 
+  contentTitle.innerHTML = 'Searching results..';
+  contentResults.innerHTML = '';
+
   fetchCocktailsByName(cocktailName)
     .then(data => {
       contentTitle.innerHTML = 'Cocktails';
