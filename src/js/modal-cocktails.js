@@ -1,3 +1,4 @@
+import cocktailModalClose from 'bundle-text:../img/modal-close.svg';
 import { fetchCocktailById } from "./fetch-cocktails";
 const drinkModal = document.querySelector( '#modal-drink-detail')
 export function showDrinkModal(id) {
@@ -13,7 +14,10 @@ drinkModal.classList.toggle('show-modal')
 }
 
 function getDrinkModalMarkup(details){
-    return (`<button class="modal__button" data-modal-close><svg class="modal-icon-close" width="18" height="18"><use href="./img/sprite.svg#icon-close-line"></use></svg></button>
+    return (`
+    <button class="modal__button" data-modal-close>
+    ${cocktailModalClose}
+    </button>
         <div class="modal__cocktail">
             <h3 class="modal__title">${details.strDrink}</h3>
             <div class="modal__instructions-hold">
