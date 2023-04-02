@@ -18,7 +18,7 @@ function getCardMarkup(name, imageSrc, id) {
 <li id="${id}" class="cocktails__item">
     <img class="cocktails__img" src="${imageSrc}" alt="cocktail"/>
     <div class="cocktails__descr">
-        <h3 class="cocktails__name">${name}</h3>
+        <h3 title="${name}" class="cocktails__name">${name}</h3>
         <div class="cocktails__btns">
             <button class="btn__learn" type="button" name="learn-more" data-id="${id}" >Learn more</button>
             <button class="btn__delete" type="button">Remove</button>
