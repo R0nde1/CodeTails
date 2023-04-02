@@ -1,5 +1,5 @@
 import { fetchRandomCocktails } from './fetch-cocktails';
-import { getDrinksMarkup } from './get-drinks-markup';
+import { getDrinksMarkup,handleCardClick} from './get-drinks-markup';
 
 const contentResults = document.querySelector('#content-results');
 const contentTitle = document.querySelector('#content-title');
@@ -17,4 +17,5 @@ if (width >= 1280) {
 fetchRandomCocktails(numberOfCocktails).then(data => {
   contentTitle.innerHTML = 'Cocktails';
   contentResults.innerHTML = getDrinksMarkup(data);
+  contentResults.addEventListener('click', handleCardClick)
 });
