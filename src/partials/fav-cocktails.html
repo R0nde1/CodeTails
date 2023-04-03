@@ -9,17 +9,21 @@
   </head>
 
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
     <include src="./partials/header.html"></include>
-    <main>
-      <include src="./partials/hero.html"></include>
-      <include src="./partials/main.html"></include>
-    </main>
-    <include src="./partials/footer.html"></include>
     <include src="./partials/mob-menu.html"></include>
     <include src="./partials/modal-cocktails.html"></include>
     <include src="./partials/modal-ingredients.html"></include>
-    <include src="./partials/search-by-letter.html"></include>
+
+    <section class="container">
+      <div class="favorite">
+        <h2 id="fav-title" class="fav__title">Favorite cocktails</h2>
+        <ul id="fav-cocktails" class="fav__content"></ul>
+
+        <!-- Cocktail cards -->
+      </div>
+    </section>
+    <include src="./partials/footer.html"></include>
+    <script src="/src/js/fav-cocktails.js" type="module"></script>
 
     <script src="./js/search.js" type="module"></script>
   </body>
