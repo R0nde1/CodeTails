@@ -2,7 +2,9 @@ import { fetchCocktailById } from './fetch-cocktails';
 import { showIngredientModal } from './modal-ingredients';
 import cocktailModalClose from 'bundle-text:../img/modal-close.svg';
 import { fetchCocktailById } from './fetch-cocktails';
+
 const drinkModal = document.querySelector('#modal-drink-detail');
+
 export function showDrinkModal(id) {
   fetchCocktailById(id).then(data => {
     drinkModal.innerHTML = getDrinkModalMarkup(data);
