@@ -6,7 +6,7 @@
     margin-bottom: 120px;
     display: flex;
     flex-direction: row-reverse;
-    gap: 32px;
+    // gap: 32px;
   }
   @media screen and (min-width: 1280px) {
     margin-bottom: 120px;
@@ -15,20 +15,23 @@
 
 .hero__info {
   display: block;
-  margin-right: 59px;
+  // margin-right: 59px;
   @media screen and (min-width: 768px) {
     margin-top: 20px;
     margin-right: 0;
   }
   @media screen and (min-width: 1280px) {
-    font-size: 52px;
-    line-height: 1.54;
+    // font-size: 52px;
+    // line-height: 1.54;
+    margin-left: 0;
   }
 }
 .hero__mobtitle {
   color: $main;
   font-family: 'Poppins';
+  font-style: normal;
   font-size: 22px;
+  letter-spacing: 0.01em;
   font-weight: 600;
   line-height: 1.91;
   margin-bottom: 60px;
@@ -40,14 +43,16 @@
   display: none;
   color: $main;
   font-family: 'Poppins';
+  font-style: normal;
   font-weight: 600;
+  letter-spacing: 0.01em;
   @media screen and (min-width: 768px) {
     display: block;
     font-size: 26px;
     line-height: 1.62;
     margin-bottom: 40px;
     width: 100%;
-  }
+     }
   @media screen and (min-width: 1280px) {
     font-size: 52px;
     line-height: 1.54;
@@ -73,11 +78,12 @@
 
 .first__line {
   display: flex;
-  gap: 4px;
+  gap: 2px;
+  justify-content: center;
 }
 .number__line {
   display: flex;
-  gap: 1px;
+  gap: 2px;
   justify-content: center;
 }
 
@@ -102,8 +108,9 @@
 .keyboard__item:hover,
 .keyboard__item:focus {
   color: $main;
-  border: 1px solid $grey;
-  text-shadow: $shadow-grey-25;
+  // border: 1px solid $grey;
+  text-shadow: 0 1px 2px #5f6775aa;
+  cursor: pointer;
 }
 
 .symbol__select {
