@@ -1,0 +1,165 @@
+//header
+// .dark-theme {
+//     & .    {
+//   
+//       color: $main-white;
+//     }}
+
+.dark-theme {
+    & .search-form__input {
+      color: $main-white;
+    }
+    & .header-theme--light {
+        color: $main-white;
+      }
+      & .header-theme--dark {
+        color: $main;
+      }
+    }
+
+
+//hero
+.dark-theme {
+    & .choice__label {
+      color: $main-white;
+      
+    }}
+
+    //search
+    .dark-theme {
+        & .select__header {
+          background-color: $main;
+          &:hover {
+            background-color: $main-black;
+            filter: none;
+            color: $main;
+          }
+          &:active {
+            color: $main-white;
+            background-color: $main-black;
+          }
+        }
+        & .select__current {
+            color: $main-white;
+          }
+          & .select__icon {
+            fill: $main-white;
+          } 
+
+    }
+
+    //cocktail-card
+    .dark-theme {
+        & .btn__add .heart-icon .icon-background {
+           fill: $main-black;
+        
+           &:hover {
+           fill: $main;
+          }
+          &:active {
+           fill: $main;
+          }
+
+        }
+    & .btn__add {
+     background-color: $main-black;
+     &:hover {
+        background-color: $main-black;
+       }
+     &:active {
+        background-color: $main-black;
+       }
+    }
+    }
+
+//modal-cockteils
+.dark-theme {
+    & .modal {
+      background-color: $main-black;
+      color: $main-white;
+      
+    }
+    & .ingredients__list{
+      color: $main-white;
+      @media screen and (min-width: 768px){
+        color: $secondary-grey;
+      }
+    }
+    & .ingredientsBlack {
+      color: $main-white;
+    }
+    & .modal__title{
+      color: $main-white;
+    }
+    & .modal__description{
+      color: $main-white;
+    }
+    
+    & .modal__instructions{
+      color: $main-white;
+    }
+    & .instruction{
+      color: $main-white;
+      @media screen and (min-width: 768px){
+        color: $secondary-grey;
+      }
+    }
+    & .modal__button{
+      fill: $main;
+    }
+    & .modal__button-add{
+      color: $main-white;
+      background-color: $main;;
+    }
+  }
+  
+  
+
+//modal-ingredients
+
+
+.dark-theme {
+    & .ingredients {
+      background-color: $main-black;
+      color: $main-white;
+      
+    }
+    & .ingredients__title{
+      color: $main-white;
+     
+    }
+    & .ingredients__button-close{
+      fill: $main;
+     
+    }
+    & .ingredients__black {
+      color: $main-white;
+    }
+    & .ingredients__text{
+      color: $main-white;
+      @media screen and (min-width: 768px){
+        color: $secondary-grey;
+      }
+    }
+    & .ingredients__topic{
+      color: $main-white;
+    }
+  
+  }
+
+  //footer
+
+
+.dark-theme {
+    & .footer__title {
+      color: $main-white;
+       }
+    & .footer__info {
+    color: $main-white;
+         }
+     & .footer__link {
+     color: $main-white;
+                 }
+
+    }
+
