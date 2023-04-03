@@ -4,6 +4,8 @@ import servingDesk2 from "../img/serving_desk@2x.png";
 import servingMob from "../img/serving_mob.png";
 import servingMob2 from "../img/serving_mob@2x.png";
 
+import heartIcon from 'bundle-text:../img/heart-icon.svg';
+
 export function getDrinksMarkup(array) {
     const markup = array.map(({ strDrink, strDrinkThumb, idDrink }) => {
         return getCardMarkup(strDrink, strDrinkThumb, idDrink)
@@ -21,7 +23,7 @@ function getCardMarkup(name, imageSrc, id) {
         <h3 title="${name}" class="cocktails__name">${name}</h3>
         <div class="cocktails__btns">
             <button class="btn__learn" type="button" name="learn-more" data-id="${id}" >Learn more</button>
-            <button class="btn__delete" type="button">Remove</button>
+            <button class="btn__add" type="button">Add to <span class="heart-icon">${heartIcon}</span></button>
         </div>
     </div>
 </li>
