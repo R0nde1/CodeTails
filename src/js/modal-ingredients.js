@@ -24,7 +24,7 @@ function getIngredientModalMarkup(details) {
     </button>
   </div>
   <h2 class="ingredients__title">${details.strIngredient}</h2>
-  <h3 class="ingredients__topic">${details.strType}</h3>
+  <h3 class="ingredients__topic">${details.strType || '-'}</h3>
   <div class="ingredients__line-container">
     <div class="ingredients__line"></div>
   </div>
