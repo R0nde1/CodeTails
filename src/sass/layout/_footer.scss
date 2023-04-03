@@ -1,3 +1,69 @@
 @import '../base/common';
 @import '../base/reset';
 @import '../base/container';
+@import '../base/variables';
+.footer {
+  background-color: $main;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.footer__title {
+  //   margin: auto;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 3;
+  color: black;
+  @media screen and (min-width: 768px) {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 2.5;
+  }
+  @media screen and (min-width: 1280px) {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 2.25;
+  }
+}
+.footer__info {
+  width: 250px;
+  margin: auto;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 2;
+  color: black;
+  @media screen and (min-width: 768px) {
+    width: 555px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 888px;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 1.5;
+  }
+}
+.footer__link {
+  text-decoration: underline;
+  background-color: transparent;
+  border: 0;
+}
+.footer__title {
+  padding-bottom: 10px;
+}
+.footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.footer__item {
+  text-align: center;
+  font-size: 12px;
+}
