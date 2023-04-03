@@ -17,3 +17,7 @@
   margin-bottom: 60px;
 }
 
+body.dark-theme {
+  background-color: $main-black;
+  color: $main-white;
+}
