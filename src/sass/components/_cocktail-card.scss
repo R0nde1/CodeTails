@@ -90,7 +90,7 @@
     height: 48px;
   }
 }
-.btn__delete {
+.btn__add {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: calc(24 / 14);
@@ -103,15 +103,38 @@
   width: 108px;
   height: 40px;
   padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  & .heart-icon {
+      display: flex;
+  
+      & .icon-background {
+        fill: $main-white;
+      }
+  
+      & .icon-outline {
+        fill: $main;
+      }
+    }
+
   &:hover {
     border: 2px solid $main;
-    border-radius: 5px;
     background-color: $main-white;
   }
   &:active {
     border: 1px solid $main;
     border-radius: 4px;
   }
+  &:active .heart-icon {
+    & .icon-background {
+      fill: $main;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     width: 123px;
     height: 48px;
@@ -125,3 +148,5 @@
     gap: 17px;
   }
 }
+
+
