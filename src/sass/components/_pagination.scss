@@ -1,0 +1,107 @@
+.pagination {
+  display: flex;
+  gap: 14px;
+  margin-top: 60px;
+  justify-content: center;
+  align-items: center;
+}
+.pagination__number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  color: $secondary;
+
+  border: solid 1px $pagin-grey-light;
+  border-radius: 4px;
+
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: $main-white;
+    background-color: $secondary;
+  }
+  &:active {
+    color: $main-white;
+    background-color: $secondary;
+  }
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: calc(20 / 16);
+  }
+}
+
+.left-arrow,
+.right-arrow {
+  color: $secondary;
+  border: none;
+  border-radius: 0px;
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    border: 1px solid $main-white;
+    border-radius: 4px;
+    width: 60px;
+    height: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 60px;
+    height: 40px;
+  }
+}
+
+.right-arrow {
+  margin-left: 12px;
+  @media screen and (min-width: 768px) {
+    border: 1px solid $pagin-grey-light;
+    border-radius: 4px;
+    width: 60px;
+    height: 40px;
+    margin-left: 108px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 60px;
+    height: 40px;
+    margin-left: 198px;
+  }
+}
+.left-arrow {
+  margin-right: 12px;
+  @media screen and (min-width: 768px) {
+    border: 1px solid $pagin-grey-light;
+    border-radius: 4px;
+    width: 60px;
+    height: 40px;
+    margin-right: 108px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 60px;
+    height: 40px;
+    margin-right: 198px;
+  }
+}
+
+.inactive {
+  color: $main-white;
+  cursor: not-allowed;
+  background-color: $secondary;
+}
+.left-arrow.inactive,
+.right-arrow.inactive {
+  background-color: $main-white;
+  color: $pagin-grey-arrow;
+}

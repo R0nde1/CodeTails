@@ -1,5 +1,7 @@
 import { fetchCocktailById } from './fetch-cocktails';
 import { showIngredientModal } from './modal-ingredients';
+import cocktailModalClose from 'bundle-text:../img/modal-close.svg';
+import { fetchCocktailById } from './fetch-cocktails';
 const drinkModal = document.querySelector('#modal-drink-detail');
 export function showDrinkModal(id) {
   fetchCocktailById(id).then(data => {
@@ -16,18 +18,20 @@ export function showDrinkModal(id) {
 function getDrinkModalMarkup(details) {
   return `
     <button class="modal__button" data-modal-close>
-                <svg class="modal-icon-close" width="18" height="18">
-                <use href="./img/sprite.svg#icon-close-line"></use>
-                </svg>
-            </button>
-            <div class="modal__cocktail">
-                <h3 class="modal__title">${details.strDrink}</h3>
+    ${cocktailModalClose}
+    </button>
+        <div class="modal__cocktail">
+            <h3 class="modal__title">${details.strDrink}</h3>
+            <div class="modal__instructions-hold">
                 <h4 class="modal__instructions">INSTRUCTION:</h4>
                 <p class="instruction">${details.strInstructions}</p>
-                <img class="modal1__picture" src="${details.strDrinkThumb}" alt="" width="280" height="280" />
-                <h4> INGREDIENTS</h4>
-                <p> Per cocktail</p>
-                <ul class="ingredients__list" ></ul>
+            </div>
+            <div class="modal__ingredients-hold">
+                <img class="modal__picture" src="${details.strDrinkThumb}" alt="" width="280" height="280" />
+                <h4 class="modal__ingredients">INGREDIENTS</h4>
+                <p class="modal__description">Per cocktail</p>
+                <ul class="ingredients__list"></ul>
+            </div>
             <button class="modal__button-add" data-id='${details.idDrink}' type="button" data-modal-add> Add to favorite </button>
         </div>
     `;
