@@ -2,7 +2,6 @@ import { fetchIngredientByName } from './fetch-cocktails';
 import ingredientClose from 'bundle-text:../img/modal-close.svg';
 const ingredientModal = document.querySelector('#modal-ingredients-details');
 export function showIngredientModal(event) {
-  console.log(event.target.dataset.ingredient);
   if (event.target.dataset.name !== 'ingredient') {
     return;
   }
