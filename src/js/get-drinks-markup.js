@@ -23,7 +23,7 @@ function getCardMarkup(name, imageSrc, id) {
         <h3 title="${name}" class="cocktails__name">${name}</h3>
         <div class="cocktails__btns">
             <button class="btn__learn" type="button" name="learn-more" data-id="${id}" >Learn more</button>
-            <button class="btn__add" type="button">Add to <span class="heart-icon">${heartIcon}</span></button>
+            <button class="btn__add" type="button" name="add-remove" data-id="${id}">Add to <span class="heart-icon">${heartIcon}</span></button>
         </div>
     </div>
 </li>
@@ -43,7 +43,7 @@ export function getErrorMarkup() {
         <img src="${servingDesk}" alt="People in the cafe" width="345" height="380"/>
         </picture>
         </li>
-      `)
+    `)
 }
 
 export function handleCardClick(event) {
@@ -52,7 +52,26 @@ export function handleCardClick(event) {
         const id = event.target.dataset.id;
         showDrinkModal(id);
     }
-    if (event.target.name === 'addRemove') {
+    if (event.target.name === 'add-remove') {
+        const id = event.target.dataset.id;
+        
         event.target.classList.toggle('btn__delete');
+        event.target.classList.toggle('active__btn');
+
+        const cocktailsFromLS = JSON.parse(localStorage.getItem("favCocktails"));
+        if (cocktailsFromLS) {
+            if (cocktailsFromLS.includes(id)) {
+                const idIndex = cocktailsFromLS.indexOf(id);
+                cocktailsFromLS.splice(idIndex, 1)
+                event.target.textContent = "Add to"
+            } else {
+                cocktailsFromLS.push(id);
+                // new code
+                event.target.textContent = "Remove" 
+            }
+            localStorage.setItem("favCocktails", JSON.stringify(cocktailsFromLS));
+        } else {
+            localStorage.setItem("favCocktails", JSON.stringify([id]));
+        }
     }
 }
