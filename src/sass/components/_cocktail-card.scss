@@ -60,6 +60,10 @@
     line-height: calc(38 / 32);
   }
 }
+
+
+
+
 .btn__learn {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -77,13 +81,13 @@
   padding: 0;
   transition: all 250ms ease-in;
   &:hover {
-    background-color: $main-white;
+    background-color: transparent;
     filter: none;
     color: $main;
   }
   &:active {
     color: $main-white;
-    background-color: $main;
+    background-color: transparent;
   }
   @media screen and (min-width: 768px) {
     width: 160px;
@@ -149,4 +153,9 @@
   }
 }
 
-
+.dark-theme {
+  & .cocktails__item {
+    background-color: $main-black;
+    color: $main-white;
+  }
+}
