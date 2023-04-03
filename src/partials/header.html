@@ -1,1 +1,139 @@
-<include src="./partials/search.html"></include>
+<header class="header">
+  <div class="container header__container">
+    <!-- !!!LOGO -->
+
+    <a href="./index.html" class="header__logo"><span>COCKTAILS</span></a>
+
+    <!-- !!!NAVIGATION -->
+
+    <ul class="header-nav__list">
+      <li class="header-nav__item"><a href="./index.html">Home</a></li>
+      <li class="header-nav__item">
+        <div class="fav__select-input">Favorite</div>
+
+        <!-- !!! NAV - FAV - DROPDOWN -->
+
+        <ul class="fav__list visually-hidden">
+          <li class="fav__dropdown-item">
+            <button class="fav__nav-link">Favorite cocktails</button>
+          </li>
+          <li class="fav__dropdown-item">
+            <button class="fav__nav-link">Favorite ingredients</button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- !!! SEARCH FORM -->
+    <include src="./partials/search.html"></include>
+
+    <!-- !!! THEME-SWITCHER -->
+
+    <ul class="header-theme__list">
+      <li class="header-theme__item header-theme--light">Light</li>
+      <li>
+        <div class="toggle">
+          <input
+            type="checkbox"
+            name="toggle"
+            id="toggle-button"
+            class="toggle-button dark-mode-toggle"
+          />
+          <label for="toggle-button" class="text"></label>
+        </div>
+      </li>
+      <li class="header-theme__item header-theme--dark">
+        <label for="toggle-button" class="text">Dark</label>
+      </li>
+    </ul>
+
+    <!-- !!!BURGER-MENU -->
+    <button
+      type="button"
+      class="btn__burger-menu"
+      data-menu-toggle
+      aria-expanded="false"
+    >
+      <svg class="" width="40" height="40">
+        <use class="" href="./img/sprite.svg#icon-menu"></use>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Отримуємо всі елементи з класом '.dark-mode-toggle'
+  const toggleElements = document.querySelectorAll('.dark-mode-toggle');
+
+  // Отримуємо тіло сторінки
+  const body = document.body;
+
+  // Задаємо назву темної теми
+  const darkTheme = 'dark-theme';
+
+  // Створюємо клас ThemeToggle
+  class ThemeToggle {
+    // Встановлюємо обробник події на кожному елементі toggle
+    constructor() {
+      toggleElements.forEach(el => {
+        el.addEventListener('click', () => this.toggleTheme());
+      });
+    }
+
+    // Встановлюємо локальне сховище темної теми
+    setTheme() {
+      localStorage.setItem(darkTheme, darkTheme);
+    }
+
+    // Видаляємо темну тему з локального сховища
+    removeTheme() {
+      localStorage.removeItem(darkTheme);
+    }
+
+    // Отримуємо поточний стан темної теми з локального сховища
+    getTheme() {
+      return localStorage.getItem(darkTheme);
+    }
+
+    // Перевіряємо, чи включена темна тема на сторінці
+    isDarkThemeOn() {
+      return body.classList.contains(darkTheme);
+    }
+
+    // Перемикаємо темну тему на сторінці та зберігаємо її стан в локальне сховище
+    toggleTheme() {
+      const isDark = this.isDarkThemeOn();
+      body.classList.toggle(darkTheme, !isDark);
+      toggleElements.forEach(el => {
+        el.checked = !isDark;
+      });
+      if (this.getTheme()) {
+        this.removeTheme();
+      } else {
+        this.setTheme();
+      }
+      document.querySelectorAll('.header-nav__item').forEach(el => {
+        el.classList.toggle(darkTheme, !isDark);
+      });
+    }
+
+    // Встановлюємо темну тему на сторінці за заданим станом
+    setThemeOn(isOn) {
+      body.classList.toggle(darkTheme, Boolean(isOn));
+      toggleElements.forEach(el => {
+        el.checked = Boolean(isOn);
+      });
+    }
+  }
+
+  // Створюємо екземпляр класу ThemeToggle
+  const toggle = new ThemeToggle();
+
+  // При завантаженні сторінки перевіряємо наявність темної теми в локальному сховищі
+  window.addEventListener('DOMContentLoaded', () => {
+    const isOn = toggle.getTheme();
+    if (isOn) {
+      toggle.setThemeOn(darkTheme);
+    }
+  });
+</script>
