@@ -13,8 +13,7 @@ symbolPanel.addEventListener('click',  getCocktails1);
 letterOnSelect.addEventListener('click',  getCocktails1);
 
 function getCocktails1(ev) {
-    console.log(ev);
-    if (!ev.target.dataset.value) {
+        if (!ev.target.dataset.value) {
        return; 
     }
     let cocktailFirstLetter = ev.target.dataset.value;
@@ -27,8 +26,7 @@ function getCocktails1(ev) {
       .then(data => {
         searchResults = data;
         contentTitle.innerHTML = 'Cocktails';
-        contentResults.innerHTML = "";
-      contentResults.append ( ...getDrinksMarkup(
+        contentResults.append ( ...getDrinksMarkup(
         data.slice(0, numberOfCocktails)
       ));
         pagination.innerHTML = createPagination(
@@ -50,8 +48,8 @@ function changePage1(e) {
     const data = searchResults;
     const end = page * numberOfCocktails;
     const start = end - numberOfCocktails;
-  
-    contentResults.innerHTML = getDrinksMarkup(data.slice(start, end));
+    contentResults.innerHTML = '';
+    contentResults.append (...getDrinksMarkup(data.slice(start, end)));
     pagination.innerHTML = createPagination(data.length, numberOfCocktails, page);
     addPaginationListeners1();
   }

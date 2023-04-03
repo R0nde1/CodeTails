@@ -58,8 +58,8 @@ function changePage(e) {
   const data = searchResults;
   const end = page * numberOfCocktails;
   const start = end - numberOfCocktails;
-
-  contentResults.innerHTML = getDrinksMarkup(data.slice(start, end));
+  contentResults.innerHTML = '';
+  contentResults.append (...getDrinksMarkup(data.slice(start, end)));
   pagination.innerHTML = createPagination(data.length, numberOfCocktails, page);
   addPaginationListeners();
 }

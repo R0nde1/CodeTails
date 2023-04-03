@@ -6,7 +6,6 @@
     margin-bottom: 120px;
     display: flex;
     flex-direction: row-reverse;
-    // gap: 32px;
   }
   @media screen and (min-width: 1280px) {
     margin-bottom: 120px;
@@ -15,14 +14,11 @@
 
 .hero__info {
   display: block;
-  // margin-right: 59px;
   @media screen and (min-width: 768px) {
     margin-top: 20px;
     margin-right: 0;
   }
   @media screen and (min-width: 1280px) {
-    // font-size: 52px;
-    // line-height: 1.54;
     margin-left: 0;
   }
 }
@@ -108,7 +104,6 @@
 .keyboard__item:hover,
 .keyboard__item:focus {
   color: $main;
-  // border: 1px solid $grey;
   text-shadow: 0 1px 2px #5f6775aa;
   cursor: pointer;
 }
