@@ -45,6 +45,14 @@
     margin-bottom: 40px;
     height: 100px;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 34px;
+  }
+&::-webkit-scrollbar-thumb {
+      background: $main;
+      border-radius: 11px;
+  }
   }
 }
 
@@ -129,6 +137,14 @@ font-family: 'Poppins';
   @media screen and (min-width: 768px){
     height: 110px;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 34px;
+  }
+&::-webkit-scrollbar-thumb {
+      background: $main;
+      border-radius: 11px;
+  }
   }
 }
 
