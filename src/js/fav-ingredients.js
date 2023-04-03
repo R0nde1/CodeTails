@@ -14,7 +14,6 @@ if (width >= 768) {
 }
 if (width >= 1280) {
   numberOfCocktails = 0;
-  // Исправить 0 на 9 когда будет рендер избраных кртинок
 }
 
 fetchRandomCocktails(numberOfCocktails).then(data => {
