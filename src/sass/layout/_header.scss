@@ -150,6 +150,58 @@ body.dark-theme {
     color: $main-white;
 }
 
+// !DROPDOWN
+
+.fav__dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 48px;
+
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.33px;
+    letter-spacing: 0.02em;
+    color: $main-black;
+
+}
+
+.fav__select {
+    position: relative;
+}
+
+.fav__select-input {
+    cursor: pointer;
+}
+
+.fav__list {
+    position: absolute;
+    border: 1px solid $main;
+    border-radius: 4px;
+    width: 210px;
+}
+
+
+.fav__nav-link {
+    background-color: inherit;
+    border: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    height: 48px;
+    width: 100%;
+    color: $main-black;
+
+    &:hover,
+    &:focus {
+        background-color: $main;
+        color: $main-white;
+    }
+}
+
 
 // !Burger
 
