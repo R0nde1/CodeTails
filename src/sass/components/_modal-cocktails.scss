@@ -41,7 +41,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: calc(26 / 16);
- cursor: pointer;
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
     height: 100px;
@@ -57,11 +56,12 @@
   }
 }
 
-.ingredientsBlack {
+.ingredients-black {
   color: $main-black;
 }
 .ingredient__focus{
   &:hover {
+    cursor: pointer;
     color: $main;
   }
   &:active {

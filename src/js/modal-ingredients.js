@@ -38,13 +38,13 @@ function getIngredientModalMarkup(details) {
     ${details.strDescription || 'Sorry, there is no description for this ingredient'}
   </p>
   <ul class="ingredients__list">
-  <li class= "ingredients__item"> <span class="ingredients__black">✶ </span> Type: ${
+  <li class="ingredients__item"> <span class="ingredients__black">✶ </span> Type: ${
     details.strType || '-'
   }</li>
-  <li class= "ingredients__item"> <span class="ingredients__black">✶ </span> Alcoholic: ${
+  <li class="ingredients__item"> <span class="ingredients__black">✶ </span> Alcoholic: ${
     details.strAlcohol || '-'
   }</li>
-  <li class= "ingredients__item"> <span class="ingredients__black">✶ </span> Alcohol by volume: ${
+  <li class="ingredients__item"> <span class="ingredients__black">✶ </span> Alcohol by volume: ${
     details.strABV || '-'
   }</li>
   </ul>
@@ -57,17 +57,25 @@ function closeIngredientModal() {
 }
 export function handleAddRemoveIngredient(event) {
   const name = event.target.dataset.id;
-  const buttonFromCard = document.querySelector(`.btn__add[data-id="${name}"]`);
+  const isOnIngredientsPage = !!document.querySelector('[data-page="fav-ingredients"]');
+  let buttonFromCard = null;
 
-  buttonFromCard.classList.toggle('icon-active');
+  if (isOnIngredientsPage) {
+    buttonFromCard = document.querySelector(`.btn__add[data-id="${name}"]`);
+    buttonFromCard.classList.toggle('icon-active');
+  }
 
   if (FavoriteStorage.isIngredientInFavorite(name)) {
     FavoriteStorage.removeIngredient(name);
     event.target.textContent = "Add to favorite";
-    buttonFromCard.querySelector('.btn-text').innerHTML = 'Add to';
+    if (isOnIngredientsPage) {
+      buttonFromCard.querySelector('.btn-text').innerHTML = 'Add to';
+    }
   } else {
     FavoriteStorage.addIngredient(name);
     event.target.textContent = "Remove from favorite";
-    buttonFromCard.querySelector('.btn-text').innerHTML = 'Remove';
+    if (isOnIngredientsPage) {
+      buttonFromCard.querySelector('.btn-text').innerHTML = 'Remove';
+    }
   }
 }

@@ -2,6 +2,7 @@
     padding-bottom: 60px;
     @media screen and (min-width: 768px) {padding-bottom: 100px;}
     @media screen and (min-width: 1280px) {padding-bottom: 97px;}
+    z-index: 4;
 }
 
 .header__container {
@@ -183,6 +184,8 @@ body.dark-theme {
     border: 1px solid $main;
     border-radius: 4px;
     width: 210px;
+    background-color: $main-white;
+    z-index: 5;
 }
 
 
@@ -218,5 +221,17 @@ body.dark-theme {
 
     @media screen and (min-width: 1280px) {
         display: none;
+    }
+}
+.dark-theme {
+    & .fav__list {
+        background-color: $main-black;        
+    }
+    & .fav__nav-link {
+        color: $main-white;
+        &:hover, &:focus {
+            background-color: $main;
+            color: $main-black;
+        }
     }
 }
