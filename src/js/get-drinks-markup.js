@@ -9,25 +9,29 @@ import heartIcon from 'bundle-text:../img/heart-icon.svg';
 export function getDrinksMarkup(array) {
     const markup = array.map(({ strDrink, strDrinkThumb, idDrink }) => {
         return getCardMarkup(strDrink, strDrinkThumb, idDrink)
-    }).join('');
+    });
 
     return markup;
 }
 
 
 function getCardMarkup(name, imageSrc, id) {
-    return (`
-<li id="${id}" class="cocktails__item">
-    <img class="cocktails__img" src="${imageSrc}" alt="cocktail"/>
-    <div class="cocktails__descr">
-        <h3 title="${name}" class="cocktails__name">${name}</h3>
-        <div class="cocktails__btns">
-            <button class="btn__learn" type="button" name="learn-more" data-id="${id}" >Learn more</button>
-            <button class="btn__add" type="button">Add to <span class="heart-icon">${heartIcon}</span></button>
+    const li = document.createElement('li');
+    li.id = id;
+    li.className = 'cocktails__item';
+    li.innerHTML = `
+        <img class="cocktails__img" src="${imageSrc}" alt="cocktail"/>
+        <div class="cocktails__descr">
+            <h3 title="${name}" class="cocktails__name">${name}</h3>
+            <div class="cocktails__btns">
+                <button class="btn__learn" type="button" data-name="learn-more" data-id="${id}" >Learn more</button>
+                <button class="btn__add" type="button" data-name="add-remove" data-id="${id}"><span data-name="add-remove" class="btn-text">Add to</span> <span data-name="add-remove" class="heart-icon">${heartIcon}</span></button>
+            </div>
         </div>
-    </div>
-</li>
-`)
+        `    
+    li.addEventListener('click', handleCardClick);
+
+    return li;
 }
 
 export function getErrorMarkup() {
@@ -43,16 +47,39 @@ export function getErrorMarkup() {
         <img src="${servingDesk}" alt="People in the cafe" width="345" height="380"/>
         </picture>
         </li>
-      `)
+    `)
 }
 
 export function handleCardClick(event) {
+    const buttonName = event.target.dataset.name; 
     
-    if (event.target.name === 'learn-more') {
+    if (buttonName === 'learn-more') {
         const id = event.target.dataset.id;
         showDrinkModal(id);
     }
-    if (event.target.name === 'addRemove') {
-        event.target.classList.toggle('btn__delete');
+
+    if (buttonName === 'add-remove' || buttonName === 'heart-icon') {
+        const addRemoveBtn = event.currentTarget.querySelector('.btn__add');
+        const btnText = addRemoveBtn.querySelector('.btn-text');
+        const btnIcon = addRemoveBtn.querySelector('.heart-icon');
+        const id = addRemoveBtn.dataset.id;
+        
+        const cocktailsFromLS = JSON.parse(localStorage.getItem("favCocktails")) || [];
+
+        if (cocktailsFromLS) {
+            if (cocktailsFromLS.includes(id)) {
+                const idIndex = cocktailsFromLS.indexOf(id);
+                
+                cocktailsFromLS.splice(idIndex, 1);
+                btnText.textContent = "Add to";
+            } else {
+                cocktailsFromLS.push(id);
+                btnText.textContent = "Remove";
+            }
+            btnIcon.classList.toggle('icon-active');
+            localStorage.setItem("favCocktails", JSON.stringify(cocktailsFromLS));
+        } else {
+            localStorage.setItem("favCocktails", JSON.stringify([id]));
+        }
     }
 }
