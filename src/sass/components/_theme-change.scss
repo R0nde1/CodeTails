@@ -1,13 +1,8 @@
-//header
-// .dark-theme {
-//     & .    {
-//   
-//       color: $main-white;
-//     }}
 
 .dark-theme {
   & .search-form__input {
     color: $main-white;
+    background-color: $main-black;
   }
   & .header-theme--light {
       color: $main-white;
@@ -15,6 +10,16 @@
     & .header-theme--dark {
       color: $main;
     }
+    & .fav__select-input {
+      color: $main;
+    }
+    & .header-nav__element {
+      color: $main;
+    }
+    & .btn__burger-icon {
+      fill: $main-white;
+    }
+    
   }
 
 
@@ -162,4 +167,3 @@
                }
 
   }
-
