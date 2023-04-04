@@ -1,6 +1,7 @@
+
 .modal {
+ 
   display: none;
-  position: relative;
   background-color: $main-white;
   padding: 40px 20px;
   width: 100%;
@@ -8,7 +9,6 @@
   top: 0;
   left: 0;
   height: 100vh;
-
   @media screen and (min-width: 768px) {
     padding: 40px 28px;
     max-width: 822px;
@@ -16,7 +16,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  
+  box-shadow: 0 0 0 1px $main;
+  border-radius: 4px;
   }
 }
 
@@ -40,7 +41,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: calc(26 / 16);
-
+ cursor: pointer;
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
     height: 100px;
