@@ -1,7 +1,27 @@
-<section class="container">
-  <div class="favorite">
-    <h2 id="fav-title" class="fav__title">Favorite ingredients</h2>
-    <ul name="fav-ingredients" id="fav-ingredients" class="fav__content"></ul>
-  </div>
-</section>
-<script src="js/fav-ingredients.js" type="module"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code-Tails</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./index.js"></script>
+  </head>
+
+  <body>
+    <include src="./partials/header.html"></include>
+    <include src="./partials/mob-menu.html"></include>
+    <include src="./partials/modal-cocktails.html"></include>
+    <include src="./partials/modal-ingredients.html"></include>
+
+    <section class="container">
+      <div class="favorite">
+        <h2 id="fav-title" class="fav__title">Favorite ingredients</h2>
+        <ul class="content-results"></ul>
+      </div>
+    </section>
+
+    <include src="./partials/footer.html"></include>
+    <script src="js/fav-ingredients.js" type="module"></script>
+  </body>
+</html>

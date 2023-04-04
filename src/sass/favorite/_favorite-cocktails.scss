@@ -1,6 +1,7 @@
 .favorite {
   display: flex;
   flex-direction: column;
+  margin-bottom: 60px;
 }
 .favorite__none {
   margin: 60px auto;
@@ -37,5 +38,44 @@
     font-weight: 700;
     font-size: 48px;
     line-height: 1.5;
+  }
+}
+.cocktails__name--ingredients {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.cocktails__category {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: calc(21 / 14);
+  color: $main-black;
+  margin-left: 20px;
+  text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: calc(24 / 16);
+    margin-bottom: 28px;
+    color: $grey;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
+}
+.cocktails__container {
+  text-align: left;
+}
+.cocktails__item-ingredients {
+  height: 177px;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 32px) / 2);
+    height: 205px;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-basis: calc((100% - 32px * 2) / 3);
+    height: 221px;
   }
 }

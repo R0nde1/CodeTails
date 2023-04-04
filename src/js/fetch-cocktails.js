@@ -35,12 +35,14 @@ export function fetchIngredientByName(name) {
     .then(response => response.json())
     .then(({ ingredients }) => ingredients[0]);
 }
-export function fetchCocktailsByLetter(firstLetter) {  
-    return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?f=${firstLetter}`)
+export function fetchCocktailsByLetter(firstLetter) {
+  return fetch(
+    `https://thecocktaildb.com/api/json/v1/1/search.php?f=${firstLetter}`
+  )
     .then(response => response.json())
     .then(({ drinks }) => {
       if (!drinks) throw "Sorry, we didn't find<br>any cocktail for you";
 
       return drinks;
     });
-  }
+}

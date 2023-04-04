@@ -11,8 +11,8 @@ export const FavoriteStorage = {
     isCocktailInFavorite(id) {
         return this.getCocktails().includes(id);
     },
-    isIngredientInFavorite(id) {
-        return this.getIngredients().includes(id);
+    isIngredientInFavorite(name) {
+        return this.getIngredients().includes(name);
     },
     addCocktail(id) {
         const tmp = this.getCocktails();
@@ -26,14 +26,14 @@ export const FavoriteStorage = {
         tmp.splice(idIndex, 1);
         localStorage.setItem(this.cocktailsKey, JSON.stringify(tmp));
     },
-    addIngredient(id) {
+    addIngredient(name) {
         const tmp = this.getIngredients();
-        tmp.push(id);
+        tmp.push(name);
         localStorage.setItem(this.ingredientsKey, JSON.stringify(tmp));
     },
-    removeIngredient(id) {
+    removeIngredient(name) {
         const tmp = this.getIngredients();
-        const idIndex = tmp.indexOf(id);
+        const idIndex = tmp.indexOf(name);
 
         tmp.splice(idIndex, 1);
         localStorage.setItem(this.ingredientsKey, JSON.stringify(tmp));
