@@ -52,6 +52,8 @@ export function getErrorMarkup() {
 
 export function handleCardClick(event) {
     const buttonName = event.target.dataset.name; 
+    const heart = event.currentTarget.querySelector('.heart-icon svg')
+    const heartBg = heart.querySelector('.icon-background')
     
     if (buttonName === 'learn-more') {
         const id = event.target.dataset.id;
@@ -69,12 +71,13 @@ export function handleCardClick(event) {
         if (cocktailsFromLS) {
             if (cocktailsFromLS.includes(id)) {
                 const idIndex = cocktailsFromLS.indexOf(id);
-                
                 cocktailsFromLS.splice(idIndex, 1);
                 btnText.textContent = "Add to";
+                heartBg.classList.remove("filled__heart");
             } else {
                 cocktailsFromLS.push(id);
                 btnText.textContent = "Remove";
+                heartBg.classList.add("filled__heart");
             }
             btnIcon.classList.toggle('icon-active');
             localStorage.setItem("favCocktails", JSON.stringify(cocktailsFromLS));
