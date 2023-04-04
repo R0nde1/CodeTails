@@ -125,6 +125,19 @@
       }
     }
 
+  &.icon-active {
+    & .heart-icon {
+  
+      & .icon-background {
+        fill: $main;
+      }
+  
+      & .icon-outline {
+        fill: $main;
+      }
+    }
+  }
+
   &:hover {
     border: 2px solid $main;
     background-color: $main-white;
