@@ -42,9 +42,9 @@ function getIngredientsList(details) {
   let ingredients = '';
   for (let i = 1; i <= 15; i++) {
     let ingredient = details['strIngredient' + i];
-
+    let ingredientAmount = details['strMeasure' + i];
     if (ingredient) {
-      ingredients += `<li class= "ingredient__item" data-ingredient="${ingredient}" data-name="ingredient"> <span class="ingredientsBlack">✶ </span>${ingredient}</li>`;
+      ingredients += `<li class= "ingredient__item" data-ingredient="${ingredient}" data-name="ingredient"> <span class="ingredientsBlack">✶ </span>${ingredientAmount} ${ingredient}</li>`;
     } else {
       break;
     }

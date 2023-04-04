@@ -35,9 +35,10 @@ function getCocktails(event) {
     .then(data => {
       searchResults = data;
       contentTitle.innerHTML = 'Cocktails';
-      contentResults.innerHTML = getDrinksMarkup(
+      contentResults.innerHTML = "";
+      contentResults.append ( ...getDrinksMarkup(
         data.slice(0, numberOfCocktails)
-      );
+      ));
       pagination.innerHTML = createPagination(
         data.length,
         numberOfCocktails,
@@ -57,8 +58,8 @@ function changePage(e) {
   const data = searchResults;
   const end = page * numberOfCocktails;
   const start = end - numberOfCocktails;
-
-  contentResults.innerHTML = getDrinksMarkup(data.slice(start, end));
+  contentResults.innerHTML = '';
+  contentResults.append (...getDrinksMarkup(data.slice(start, end)));
   pagination.innerHTML = createPagination(data.length, numberOfCocktails, page);
   addPaginationListeners();
 }
