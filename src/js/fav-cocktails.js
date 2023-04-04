@@ -1,15 +1,32 @@
-import { fetchRandomCocktails } from './fetch-cocktails';
+import { getDrinksMarkup } from './get-drinks-markup';
+import { fetchCocktailById } from './fetch-cocktails';
 
-const favIngredients = document.querySelector('#fav-cocktails');
+const KEY_FAV_ING = 'favCocktails';
+const favContent = document.querySelector('.content-results');
 const noFoundCocktail = `<p class="favorite__none">
 You haven't added any <br>favorite cocktails yet</p>`;
 
-const width = document.body.clientWidth;
-let numberOfCocktails = 0;
+getCocktailsData();
 
-fetchRandomCocktails(numberOfCocktails).then(data => {
+function makePromises() {
+  const favCocktails = JSON.parse(localStorage.getItem(KEY_FAV_ING));
+  const promises = favCocktails.reduce((acc, id) => {
+    acc.push(fetchCocktailById(id));
+    return acc;
+  }, []);
+  return promises;
+}
+
+async function getCocktailsData() {
+  const promises = makePromises();
+  const data = await Promise.all(promises).catch(error => console.log(error));
+
   if (data.length === 0) {
-    favIngredients.innerHTML = noFoundCocktail;
+    favContent.innerHTML = noFoundCocktail;
+    console.log(9938373737);
     return;
   }
-});
+
+  favContent.innerHTML = '';
+  favContent.append(...getDrinksMarkup(data));
+}

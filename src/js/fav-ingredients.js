@@ -1,27 +1,34 @@
-import { fetchRandomCocktails } from './fetch-cocktails';
-import { getDrinksMarkup, handleCardClick } from './get-drinks-markup';
+import { getDrinksMarkupIngredients } from './get-drinks-markup';
+import { fetchCocktailById } from './fetch-cocktails';
 
-const favIngredients = document.querySelector('#fav-ingredients');
-const contentTitle = document.querySelector('#fav-title');
+const KEY_FAV_ING = 'favCocktails';
+const favContent = document.querySelector('.content-results');
 const noFoundCocktail = `<p class="favorite__none">
-You haven't added any <br>favorite ingredients yet</p>`;
+You haven't added any <br>favorite cocktails yet</p>`;
 
-const width = document.body.clientWidth;
-let numberOfCocktails = 3;
+getCocktailsData();
 
-if (width >= 768) {
-  numberOfCocktails = 6;
+function makePromises() {
+  const favCocktails = JSON.parse(localStorage.getItem(KEY_FAV_ING));
+  const promises = favCocktails.reduce((acc, id) => {
+    acc.push(fetchCocktailById(id));
+    return acc;
+  }, []);
+  return promises;
 }
-if (width >= 1280) {
-  numberOfCocktails = 0;
-}
 
-fetchRandomCocktails(numberOfCocktails).then(data => {
+async function getCocktailsData() {
+  const promises = makePromises();
+  const data = await Promise.all(promises).catch(error => console.log(error));
+
+  console.log(data);
+
   if (data.length === 0) {
-    favIngredients.innerHTML = noFoundCocktail;
+    favContent.innerHTML = noFoundCocktail;
+    console.log(9938373737);
     return;
   }
 
-  favIngredients.innerHTML = getDrinksMarkup(data);
-  favIngredients.addEventListener('click', handleCardClick);
-});
+  favContent.innerHTML = '';
+  favContent.append(...getDrinksMarkupIngredients(data));
+}
