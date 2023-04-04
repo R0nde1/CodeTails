@@ -57,9 +57,7 @@ export function getErrorMarkup() {
 
 export function handleCardClick(event) {
     const buttonName = event.target.dataset.name; 
-    const heart = event.currentTarget.querySelector('.heart-icon svg')
-    const heartBg = heart.querySelector('.icon-background')
-    
+       
     if (buttonName === 'learn-more') {
         const id = event.target.dataset.id;
         showDrinkModal(id);
