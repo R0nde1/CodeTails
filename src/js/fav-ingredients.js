@@ -1,32 +1,31 @@
-import { getDrinksMarkupIngredients } from './get-drinks-markup';
-import { fetchCocktailById } from './fetch-cocktails';
+import { getDrinksMarkupIngredients } from './get-ingredients-markup';
+import { fetchIngredientByName } from './fetch-cocktails';
+import { FavoriteStorage } from './favorite-storage';
 
-const KEY_FAV_ING = 'favCocktails';
 const favContent = document.querySelector('.content-results');
-const noFoundCocktail = `<p class="favorite__none">
-You haven't added any <br>favorite cocktails yet</p>`;
+const noFoundIngredients = `<p class="favorite__none">
+You haven't added any <br>favorite ingredients yet</p>`;
 
-getCocktailsData();
+getIngredientsData();
 
 function makePromises() {
-  const favCocktails = JSON.parse(localStorage.getItem(KEY_FAV_ING));
-  const promises = favCocktails.reduce((acc, id) => {
-    acc.push(fetchCocktailById(id));
+  const favIngredients = FavoriteStorage.getIngredients();
+  const promises = favIngredients.reduce((acc, name) => {
+    acc.push(fetchIngredientByName(name));
     return acc;
   }, []);
   return promises;
 }
 
-async function getCocktailsData() {
+async function getIngredientsData() {
   const promises = makePromises();
   const data = await Promise.all(promises).catch(error => console.log(error));
 
   console.log(data);
 
   if (data.length === 0) {
-    favContent.innerHTML = noFoundCocktail;
-    console.log(9938373737);
-    return;
+    favContent.innerHTML = noFoundIngredients;
+      return;
   }
 
   favContent.innerHTML = '';

@@ -2,6 +2,7 @@ import { fetchCocktailById } from './fetch-cocktails';
 import { showIngredientModal } from './modal-ingredients';
 import cocktailModalClose from 'bundle-text:../img/modal-close.svg';
 import { fetchCocktailById } from './fetch-cocktails';
+import { FavoriteStorage } from './favorite-storage';
 
 const drinkModal = document.querySelector('#modal-drink-detail');
 
@@ -10,14 +11,19 @@ export function showDrinkModal(id) {
     drinkModal.innerHTML = getDrinkModalMarkup(data);
     const closeCocktailBtn = drinkModal.querySelector('.modal__button');
     const ingredientList = drinkModal.querySelector('.ingredients__list');
+    const addRemoveBtn = drinkModal.querySelector('.modal__button-add');
+
     ingredientList.innerHTML = getIngredientsList(data);
     ingredientList.addEventListener('click', showIngredientModal);
     closeCocktailBtn.addEventListener('click', closeCocktailModal);
+    addRemoveBtn.addEventListener('click', handleAddRemoveCocktail);
     drinkModal.classList.toggle('show-modal');
   });
 }
 
 function getDrinkModalMarkup(details) {
+  const isInFavorite = FavoriteStorage.isCocktailInFavorite(details.idDrink);
+  const btnText = isInFavorite ? 'Remove from favorite' : 'Add to favorite';
   return `
     <button class="modal__button" data-modal-close>
     ${cocktailModalClose}
@@ -34,7 +40,7 @@ function getDrinkModalMarkup(details) {
                 <p class="modal__description">Per cocktail</p>
                 <ul class="ingredients__list"></ul>
             </div>
-            <button class="modal__button-add" data-id='${details.idDrink}' type="button" data-modal-add> Add to favorite </button>
+            <button class="modal__button-add" data-id="${details.idDrink}" name="add-remove" type="button"> ${btnText} </button>
         </div>
     `;
 }
@@ -55,4 +61,21 @@ function getIngredientsList(details) {
 function closeCocktailModal() {
   drinkModal.innerHTML = '';
   drinkModal.classList.toggle('show-modal');
+}
+
+export function handleAddRemoveCocktail(event) {
+  const id = event.target.dataset.id;
+  const buttonFromCard = document.querySelector(`.btn__add[data-id="${id}"]`);
+
+  buttonFromCard.classList.toggle('icon-active');
+
+  if (FavoriteStorage.isCocktailInFavorite(id)) {
+    FavoriteStorage.removeCocktail(id);
+    event.target.textContent = "Add to favorite";
+    buttonFromCard.querySelector('.btn-text').innerHTML = 'Add to';
+  } else {
+    FavoriteStorage.addCocktail(id);
+    event.target.textContent = "Remove from favorite";
+    buttonFromCard.querySelector('.btn-text').innerHTML = 'Remove';
+  }
 }
