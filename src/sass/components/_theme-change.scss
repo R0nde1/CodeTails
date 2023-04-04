@@ -8,6 +8,7 @@
 .dark-theme {
   & .search-form__input {
     color: $main-white;
+    background-color: $main-black;
   }
   & .header-theme--light {
       color: $main-white;
