@@ -1,4 +1,13 @@
-export function createPagination(totalResults, pageSize, pageNumber) {
+import { calculateCocktails } from "./calculate";
+import { getDrinksMarkup } from "./get-drinks-markup";
+
+let searchResults;
+let contentResults;
+const pagination = document.querySelector('#pagination');
+export function createPagination(results, pageSize, pageNumber) {
+  contentResults = document.querySelector('#content-results')
+  searchResults=results;
+  const totalResults=results.length;
   const pagesCount = Math.ceil(totalResults / pageSize);
   if (pagesCount === 1) {
     return '';
@@ -31,5 +40,28 @@ export function createPagination(totalResults, pageSize, pageNumber) {
   result += `<li class="pagination__number right-arrow${inactive}" data-page="${
     pageNumber + 1
   }">&gt;</li></div>`;
-  return result;
+  pagination.innerHTML = result;
+  addPaginationListeners();
+}
+
+
+function changePage(e) {
+  const page = Number(e.target.dataset.page);
+  const numberOfCocktails = calculateCocktails();
+  const data = searchResults;
+  const end = page * numberOfCocktails;
+  const start = end - numberOfCocktails;
+  contentResults.innerHTML = '';
+  contentResults.append (...getDrinksMarkup(data.slice(start, end)));
+  createPagination(data, numberOfCocktails, page);
+  
+}
+
+function addPaginationListeners() {
+  const pageElements = document.querySelectorAll('.pagination__number');
+  for (const el of pageElements) {
+    if (el.className.includes('inactive')) continue;
+    el.addEventListener('click', changePage);
+  }
+
 }
