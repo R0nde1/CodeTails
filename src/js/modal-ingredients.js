@@ -12,7 +12,7 @@ export function showIngredientModal(event) {
     const closeIngredientBtn = ingredientModal.querySelector(
       '.ingredients__button-close'
     );
-    const addRemoveBtn = drinkModal.querySelector('.ingredients__button');
+    const addRemoveBtn = ingredientModal.querySelector('.ingredients__button');
     addRemoveBtn.addEventListener('click', handleAddRemoveIngredient);
     closeIngredientBtn.addEventListener('click', closeIngredientModal);
     ingredientModal.classList.toggle('show-modal');
