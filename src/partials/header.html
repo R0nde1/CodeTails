@@ -1,66 +1,67 @@
 <!-- <include src="./partials/search.html"></include> -->
 
 <header class="header">
-    <div class="container header__container">
-      <!-- !!!LOGO -->
-  
-      <a href="./index.html" class="header__logo"><span>COCKTAILS</span></a>
-  
-      <!-- !!!NAVIGATION -->
-  
-      <ul class="header-nav__list">
-        <li class="header-nav__item"><a href="./index.html">Home</a></li>
-        <li class="header-nav__item">
-          <div class="fav__select-input">Favorite</div>
-  
-          <!-- !!! NAV - FAV - DROPDOWN -->
-  
-          <ul class="fav__list visually-hidden">
-            <li class="fav__dropdown-item">
-              <button class="fav__nav-link">Favorite cocktails</button>
-            </li>
-            <li class="fav__dropdown-item">
-              <button class="fav__nav-link">Favorite ingredients</button>
-            </li>
-          </ul>
-        </li>
-      </ul>
-  
-      <!-- !!! SEARCH FORM -->
-      <include src="./partials/search.html"></include>
-  
-      <!-- !!! THEME-SWITCHER -->
-  
-      <ul class="header-theme__list">
-        <li class="header-theme__item header-theme--light">Light</li>
-        <li>
-          <div class="toggle">
-            <input
-              type="checkbox"
-              name="toggle"
-              id="toggle-button"
-              class="toggle-button dark-mode-toggle"
-            />
-            <label for="toggle-button" class="text"></label>
-          </div>
-        </li>
-        <li class="header-theme__item header-theme--dark">
-          <label for="toggle-button" class="text">Dark</label>
-        </li>
-      </ul>
-  
-      <!-- !!!BURGER-MENU -->
-      <button
-        type="button"
-        class="btn__burger-menu"
-        data-menu-toggle
-        aria-expanded="false"
-      >
-        <svg class="" width="40" height="40">
-          <use class="" href="./img/sprite.svg#icon-menu"></use>
-        </svg>
-      </button>
-    </div>
-  </header>
-  
-  <script>'./js/theme-change'</script>
+  <div class="container header__container">
+    <!-- !!!LOGO -->
+
+    <a href="./index.html" class="header__logo"><span>COCKTAILS</span></a>
+
+    <!-- !!!NAVIGATION -->
+
+    <ul class="header-nav__list">
+      <li class="header-nav__item"><a href="./index.html">Home</a></li>
+      <li class="header-nav__item">
+        <div class="fav__select-input">Favorite</div>
+
+        <!-- !!! NAV - FAV - DROPDOWN -->
+
+        <ul class="fav__list visually-hidden">
+          <li class="fav__dropdown-item">
+            <button class="fav__nav-link">Favorite cocktails</button>
+          </li>
+          <li class="fav__dropdown-item">
+            <button class="fav__nav-link">Favorite ingredients</button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- !!! SEARCH FORM -->
+    <include src="./partials/search.html"></include>
+
+    <!-- !!! THEME-SWITCHER -->
+
+    <ul class="header-theme__list">
+      <li class="header-theme__item header-theme--light">Light</li>
+      <li>
+        <div class="toggle">
+          <input
+            type="checkbox"
+            name="toggle"
+            id="toggle-button"
+            class="toggle-button dark-mode-toggle"
+          />
+          <label for="toggle-button" class="text"></label>
+        </div>
+      </li>
+      <li class="header-theme__item header-theme--dark">
+        <label for="toggle-button" class="text">Dark</label>
+      </li>
+    </ul>
+
+    <!-- !!!BURGER-MENU -->
+    <button
+      type="button"
+      class="btn__burger-menu"
+      data-menu-toggle
+      aria-expanded="false"
+    >
+      <svg class="" width="40" height="40">
+        <use class="" href="./img/sprite.svg#icon-menu"></use>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>'./js/theme-change'</script>
+<script>'./js/header-dropdown'</script>
