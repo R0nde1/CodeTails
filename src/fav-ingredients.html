@@ -13,7 +13,6 @@
     <meta name="theme-color" content="#ffffff">
     
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
   </head>
 
   <body>
@@ -25,11 +24,13 @@
     <section class="container">
       <div class="favorite" data-page="fav-ingredients">
         <h2 id="fav-title" class="fav__title">Favorite ingredients</h2>
-        <ul class="content-results"></ul>
+        <ul class="favorite-results"></ul>
       </div>
     </section>
 
     <include src="./partials/footer.html"></include>
-    <script src="js/fav-ingredients.js" type="module"></script>
+    <script src="./index.js" type="module"></script>
+    <script src="./js/fav-ingredients.js" type="module"></script>
+    <script src="./js/search.js" type="module"></script>
   </body>
 </html>

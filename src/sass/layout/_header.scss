@@ -183,7 +183,7 @@ body.dark-theme {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: start;
     height: 48px;
 
 
@@ -206,6 +206,7 @@ body.dark-theme {
 
 .fav__list {
     position: absolute;
+    margin-top: 10px;
     border: 1px solid $main;
     border-radius: 4px;
     width: 210px;
