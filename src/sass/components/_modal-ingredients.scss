@@ -1,4 +1,5 @@
 .ingredients {
+  z-index: 3;
   display: none;
   position: relative;
   background-color: $main-white;
@@ -93,6 +94,15 @@
     margin-top: 28px;
     margin-bottom: 28px;
   }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 34px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $main;
+    border-radius: 11px;
+  }
 }
 
 .ingredients__black {
@@ -107,7 +117,7 @@
 .ingredients__button {
   padding: 12px 24px;
   color: $main-white;
-  background-color: $main;
+  background-color: $secondary;
   border-radius: 4px;
   border: none;
 
@@ -116,11 +126,27 @@
   font-weight: 400;
   font-size: 20px;
   line-height: calc(24 / 20);
-
   letter-spacing: 0.02em;
+
+  position: absolute;
+  @media screen and (max-width: 768px) {
+    bottom: 40px;
+    left: 20px;
+  }
+
   @media screen and (min-width: 768px) {
-    display: block;
-    margin-left: auto;
+    width: 185px;
+    bottom: 28px;
+    right: 28px;
+  }
+
+  &:hover {
+    background-color: $main-white;
+    color: $main;
+  }
+  &:active {
+    color: $main-white;
+    background-color: $main;
   }
 }
 

@@ -21,3 +21,51 @@ body.dark-theme {
   background-color: $main-black;
   color: $main-white;
 }
+
+.scroll__top {
+  position: fixed;
+  bottom: 65px;
+  right: 45px;
+  z-index: 999;
+
+  width: 52px;
+  height: 52px;
+  background-color: $main-white;
+  border: 1px solid $main;
+  color: $main;
+  cursor: pointer;
+  visibility: hidden;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4 $main-white;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.scroll__top::before {
+  content: '↑';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+.scroll__top:hover {
+  color: rgb(255, 198, 154);
+}
+.scroll__top--active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll__top-svg-path {
+  box-sizing: border-box;
+  fill: none;
+  stroke: $main-active;
+  stroke-width: 4px;
+  transition: 0.3s;
+}
