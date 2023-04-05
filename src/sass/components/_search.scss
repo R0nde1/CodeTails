@@ -33,3 +33,11 @@
         width: 288px;
     }
 }
+
+.search-form__img {
+    transition: transform 500ms;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
