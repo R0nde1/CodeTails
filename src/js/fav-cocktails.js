@@ -1,6 +1,8 @@
 import { getDrinksMarkup } from './get-drinks-markup';
 import { fetchCocktailById } from './fetch-cocktails';
 import { FavoriteStorage } from './favorite-storage';
+import { calculateCocktails } from './calculate';
+import { createPagination } from './pagination';
 
 const favContent = document.querySelector('.favorite-results');
 const noFoundCocktail = `<p class="favorite__none">
@@ -25,7 +27,12 @@ async function getCocktailsData() {
     favContent.innerHTML = noFoundCocktail;
       return;
   }
-
+  const numberOfCocktails = calculateCocktails();
   favContent.innerHTML = '';
-  favContent.append(...getDrinksMarkup(data));
+  favContent.append(...getDrinksMarkup(data.slice(0, numberOfCocktails)));
+  createPagination(
+    data,
+    numberOfCocktails,
+    1
+  );
 }
