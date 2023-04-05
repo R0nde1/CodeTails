@@ -2,27 +2,30 @@
 @import '../base/reset';
 @import '../base/container';
 @import '../base/variables';
+
 .footer {
   background-color: $main;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
 .footer__title {
-  //   margin: auto;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 3;
-  color: black;
+  color: $main-black;
+  margin-bottom: 30px;
+
   @media screen and (min-width: 768px) {
     font-weight: 700;
     font-size: 24px;
     line-height: 2.5;
   }
   @media screen and (min-width: 1280px) {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 32px;
     line-height: 2.25;
   }
@@ -35,7 +38,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 2;
-  color: black;
+  color: $main-black;
   @media screen and (min-width: 768px) {
     width: 555px;
     font-weight: 400;
@@ -49,14 +52,25 @@
     line-height: 1.5;
   }
 }
+.footer__image {
+  border: 2px solid;
+
+  border-radius: 50%;
+  border-color: $main;
+  width: 53px;
+  @media screen and (min-width: 768px) {
+    width: 80px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 120px;
+  }
+}
 .footer__link {
   text-decoration: underline;
   background-color: transparent;
   border: 0;
 }
-.footer__title {
-  padding-bottom: 10px;
-}
+
 .footer__list {
   display: flex;
   flex-wrap: wrap;
@@ -64,6 +78,87 @@
   gap: 30px;
 }
 .footer__item {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 12px;
+}
+
+.modal-footer {
+  display: none;
+  background-color: $main-white;
+  padding: 40px 20px;
+  width: 320px;
+  position: fixed;
+  border-radius: 1%;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0 0 1px $main;
+  transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    padding: 30px 15px;
+    width: 700px;
+    height: auto;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1245px;
+  }
+}
+
+.modal-content {
+  margin: 20px auto;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: $main-black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal__text {
+  font-weight: 700;
+  font-size: 8px;
+  line-height: 0.76;
+  color: $main-black;
+  @media screen and (min-width: 768px) {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.14;
+    color: $main-black;
+  }
+  @media screen and (min-width: 1280px) {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.7;
+    color: $main-black;
+  }
+}
+.modal__button {
+  display: flex;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  @media screen and (min-width: 768px) {
+    top: 12px;
+    right: 12px;
+  }
+}
+.modal-icon-close {
+  height: 32px;
+  width: 32px;
+  border: none;
+  background: transparent;
+  &:hover {
+    fill: $main;
+  }
 }
