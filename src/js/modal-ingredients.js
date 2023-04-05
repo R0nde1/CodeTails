@@ -20,8 +20,16 @@ export function showIngredientModal(event) {
 }
 
 function getIngredientModalMarkup(details) {
-  const isInFavorite = FavoriteStorage.isIngredientInFavorite(details.strIngredient);
+  const isInFavorite = FavoriteStorage.isIngredientInFavorite(
+    details.strIngredient
+  );
   const btnText = isInFavorite ? 'Remove from favorite' : 'Add to favorite';
+  const description = !details.strDescription
+    ? 'Sorry, there is no description for this ingredient'
+    : details.strDescription.replace(
+        details.strIngredient,
+        `<strong class="ingredients__bold-name">${details.strIngredient}</strong>`
+      );
 
   return `
     <div class="ingredients__btn">
@@ -35,7 +43,7 @@ function getIngredientModalMarkup(details) {
     <div class="ingredients__line"></div>
   </div>
   <p class="ingredients__text">
-    ${details.strDescription || 'Sorry, there is no description for this ingredient'}
+    ${description}
   </p>
   <ul class="ingredients__list">
   <li class="ingredients__item"> <span class="ingredients__black">✶ </span> Type: ${
@@ -48,7 +56,9 @@ function getIngredientModalMarkup(details) {
     details.strABV || '-'
   }</li>
   </ul>
-  <button type="button" class="ingredients__button" data-name="add-remove" data-id="${details.strIngredient}">${btnText}</button>`;
+  <button type="button" class="ingredients__button" data-name="add-remove" data-id="${
+    details.strIngredient
+  }">${btnText}</button>`;
 }
 
 function closeIngredientModal() {
@@ -57,7 +67,9 @@ function closeIngredientModal() {
 }
 export function handleAddRemoveIngredient(event) {
   const name = event.target.dataset.id;
-  const isOnIngredientsPage = !!document.querySelector('[data-page="fav-ingredients"]');
+  const isOnIngredientsPage = !!document.querySelector(
+    '[data-page="fav-ingredients"]'
+  );
   let buttonFromCard = null;
 
   if (isOnIngredientsPage) {
@@ -67,13 +79,13 @@ export function handleAddRemoveIngredient(event) {
 
   if (FavoriteStorage.isIngredientInFavorite(name)) {
     FavoriteStorage.removeIngredient(name);
-    event.target.textContent = "Add to favorite";
+    event.target.textContent = 'Add to favorite';
     if (isOnIngredientsPage) {
       buttonFromCard.querySelector('.btn-text').innerHTML = 'Add to';
     }
   } else {
     FavoriteStorage.addIngredient(name);
-    event.target.textContent = "Remove from favorite";
+    event.target.textContent = 'Remove from favorite';
     if (isOnIngredientsPage) {
       buttonFromCard.querySelector('.btn-text').innerHTML = 'Remove';
     }
