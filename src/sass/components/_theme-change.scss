@@ -45,15 +45,11 @@
     }
   }
 
-
-//hero
 .dark-theme {
   & .choice__label {
     color: $main-white;
     
   }}
-
-  //search
   .dark-theme {
       & .select__header {
         background-color: $main;
@@ -76,7 +72,6 @@
 
   }
 
-  //cocktail-card
   .dark-theme {
       & .btn__add .heart-icon .icon-background {
          fill: $main-black;
@@ -100,7 +95,6 @@
   }
   }
 
-//modal-cockteils
 .dark-theme {
   & .modal {
     background-color: $main-black;
@@ -141,8 +135,6 @@
   }
 }
 
-//modal-ingredients
-
 .dark-theme {
   & .ingredients {
     background-color: $main-black;
@@ -171,9 +163,6 @@
   }
 
 }
-
-//footer
-
 
 .dark-theme {
   & .footer__title {
@@ -208,9 +197,6 @@
         }
                  }
 
-
-//burger
-
 .dark-theme {
   & .fav__select-input__mm{
     background-color: $main-black;
@@ -229,8 +215,7 @@
     }
            }          
  }
-  //favorite
-
+ 
 .dark-theme {
   & .fav__title{
     color: $main-white;
