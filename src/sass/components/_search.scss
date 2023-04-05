@@ -33,20 +33,3 @@
         width: 288px;
     }
 }
-
-.search-form {
-    
-    @media screen and (min-width: 1280px) {
-            margin-left: 251px;
-            padding-bottom: 32px;
-        }
-
-        @media screen and (min-width: 768px) {
-            margin-left: 190px;
-            padding-bottom: 5px;
-        }
-
-    @media screen and (max-width: 767.98px) {
-        display: none;
-    }
-}
