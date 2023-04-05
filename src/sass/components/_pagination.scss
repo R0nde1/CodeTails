@@ -1,9 +1,13 @@
-.pagination {
+.pagination-line {
   display: flex;
   gap: 14px;
   margin-top: 60px;
   justify-content: center;
   align-items: center;
+  margin-top: 24px;
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+  }
 }
 .pagination__number {
   display: flex;
@@ -48,7 +52,6 @@
   width: 24px;
   height: 24px;
   font-size: 20px;
-  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -101,7 +104,8 @@
   background-color: $secondary;
 }
 .left-arrow.inactive,
-.right-arrow.inactive {
+.right-arrow.inactive,
+.dots.inactive {
   background-color: $main-white;
   color: $pagin-grey-arrow;
 }
