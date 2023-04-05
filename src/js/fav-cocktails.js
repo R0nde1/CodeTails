@@ -2,7 +2,7 @@ import { getDrinksMarkup } from './get-drinks-markup';
 import { fetchCocktailById } from './fetch-cocktails';
 import { FavoriteStorage } from './favorite-storage';
 
-const favContent = document.querySelector('.content-results');
+const favContent = document.querySelector('.favorite-results');
 const noFoundCocktail = `<p class="favorite__none">
 You haven't added any <br>favorite cocktails yet</p>`;
 

@@ -1,7 +1,8 @@
 import { fetchCocktailsByLetter } from './fetch-cocktails';
 import { calculateCocktails } from './calculate';
-import { getDrinksMarkup, getErrorMarkup } from './get-drinks-markup';
+import { getDrinksMarkup } from './get-drinks-markup';
 import { createPagination } from './pagination';
+import { getErrorMarkup } from './get-error-markup';
 
 const contentResults = document.querySelector('#content-results');
 const contentTitle = document.querySelector('#content-title');
