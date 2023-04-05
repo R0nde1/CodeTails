@@ -21,13 +21,13 @@ function getCocktails1(ev) {
   let cocktailFirstLetter = ev.target.dataset.value;
 
   contentTitle.innerHTML = 'Searching results..';
-  contentResults.innerHTML = '';
   const numberOfCocktails = calculateCocktails();
 
   fetchCocktailsByLetter(cocktailFirstLetter)
     .then(data => {
       letterSearchResults = data;
       contentTitle.innerHTML = 'Cocktails';
+      contentResults.innerHTML = '';
       contentResults.append(
         ...getDrinksMarkup(data.slice(0, numberOfCocktails))
       );

@@ -39,7 +39,6 @@ function getCocktails(event) {
   const cocktailName = event.target.elements.search.value;
 
   contentTitle.innerHTML = 'Searching results..';
-  contentResults.innerHTML = '';
   const numberOfCocktails = calculateCocktails();
 
   fetchCocktailsByName(cocktailName)
