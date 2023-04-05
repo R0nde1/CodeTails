@@ -59,6 +59,4 @@ function getCocktails(event) {
       contentTitle.innerHTML = error
       contentResults.innerHTML = getErrorMarkup()
     });
-  mainSearch.reset()
-  mobSearch.reset()
 }
