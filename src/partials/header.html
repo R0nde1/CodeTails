@@ -8,7 +8,7 @@
 
     <!-- !!!NAVIGATION -->
 
-    <ul class="header-nav__list">      
+    <ul class="header-nav__list">
       <li class="header-nav__item">
         <a href="./index.html" class="header-nav__element">Home</a>
       </li>
@@ -39,29 +39,30 @@
     </ul>
 
     <div class="heder-search-wrapper">
-    <!-- !!! SEARCH FORM -->
-    <include src="./partials/search.html"></include>
+      <!-- !!! SEARCH FORM -->
+      <include src="./partials/search.html"></include>
     </div>
 
     <!-- !!! THEME-SWITCHER -->
-
-    <ul class="header-theme__list">
-      <li class="header-theme__item header-theme--light">Light</li>
-      <li>
-        <div class="toggle">
-          <input
-            type="checkbox"
-            name="toggle"
-            id="toggle-button"
-            class="toggle-button dark-mode-toggle"
-          />
-          <label for="toggle-button" class="text"></label>
-        </div>
-      </li>
-      <li class="header-theme__item header-theme--dark">
-        <label for="toggle-button" class="text">Dark</label>
-      </li>
-    </ul>
+    <div class="heder-switcher-wrapper">
+      <ul class="header-theme__list">
+        <li class="header-theme__item header-theme--light">Light</li>
+        <li>
+          <div class="toggle">
+            <input
+              type="checkbox"
+              name="toggle"
+              id="toggle-button"
+              class="toggle-button dark-mode-toggle"
+            />
+            <label for="toggle-button" class="text"></label>
+          </div>
+        </li>
+        <li class="header-theme__item header-theme--dark">
+          <label for="toggle-button" class="text">Dark</label>
+        </li>
+      </ul>
+    </div>
 
     <!-- !!!BURGER-MENU -->
     <button

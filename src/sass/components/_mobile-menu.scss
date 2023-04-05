@@ -1,42 +1,42 @@
 .burger-menu {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: $main-white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $main-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    transform: translateX(100%);
-    transition: transform 500ms;
+  transform: translateX(100%);
+  transition: transform 500ms;
 }
 
 .burger-menu.is-open {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .menu-close__btn {
-    display: flex;
-    background: transparent;
-    border: none;
-    position: absolute;
-    top: 22px;
-    right: 20px;
+  display: flex;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 22px;
+  right: 20px;
 
-    @media screen and (min-width: 768px) {
-        top: 24px;
-        right: 16px;
-    }
-    &:hover {
-        fill: $main;
-    }
+  @media screen and (min-width: 768px) {
+    top: 24px;
+    right: 16px;
+  }
+  &:hover {
+    fill: $main;
+  }
 }
 
 .header__logo__mm {
   display: none;
-  
+
   @media screen and (min-width: 768px) {
     display: block;
     margin-left: 20px;
@@ -44,133 +44,132 @@
 }
 
 .header-nav__list__mm {
-    display: block;
-    margin-left: 20px;
-    position: relative;
+  display: block;
+  margin-left: 20px;
+  position: relative;
 
-    @media screen and (min-width: 768px) {
-      margin-left: 326px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-left: 326px;
+  }
 }
 
 .header-nav__item__mm {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 0.86;
-    letter-spacing: 0.02em;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 0.86;
+  letter-spacing: 0.02em;
 
-    &:not(:last-child) {
-        margin-bottom: 32px;
-    }
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
 
-    &:hover,
-    :focus {
-        color: $main;
-        fill: $main;
-    }
+  &:hover,
+  :focus {
+    color: $main;
+    fill: $main;
+  }
 }
 
 .fav__select-btn {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: none;
-    outline: none;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
 .fav__select-img {
-    transition: transform 500ms;
-    transition: fill 250ms;
-    fill: $main-black;
+  transition: transform 500ms;
+  transition: fill 250ms;
+  fill: $main-black;
 
-    &:hover {
-        fill: $main;
-    }
+  &:hover {
+    fill: $main;
+  }
 }
 
 .fav__select-img.is-active {
-    transform: rotate(180deg);
-    fill: $main;
+  transform: rotate(180deg);
+  fill: $main;
 }
 
 .logo-switcher__wrapper {
-    display: flex;
-    align-items: center;
-    gap: 150px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 150px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 40px;
 
-    @media screen and (min-width: 768px) {
-        margin-bottom: 51px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 51px;
+  }
 }
 
 .search-wrapper {
-    display: block;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 40px;
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 40px;
 
-    @media screen and (min-width: 768px) {
-            display: none;
-        }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .footer-wrapper {
-    display: none;
+  display: none;
 
-    @media screen and (min-width: 768px) {
-        display: block;
-    }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 // !DROPDOWN
 
 .fav__dropdown-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 48px;
 
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.33px;
-    letter-spacing: 0.02em;
-    color: $main-black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33px;
+  letter-spacing: 0.02em;
+  color: $main-black;
 }
 
 .fav__select-input__mm {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .fav__list__mm {
-    position: absolute;
-    top: 110%;
-    border: 1px solid $main;
-    border-radius: 4px;
-    width: 210px;
+  position: absolute;
+  top: 110%;
+  border: 1px solid $main;
+  border-radius: 4px;
+  width: 210px;
 }
 
 .fav__nav-link {
-    background-color: inherit;
-    border: 0;
-    display: flex;
-    align-items: center;
-    padding-left: 12px;
-    height: 48px;
-    width: 100%;
-    color: $main-black;
+  border: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  height: 48px;
+  width: 100%;
+  color: $main-black;
 
-    &:hover,
-    &:focus {
-        background-color: $main;
-        color: $main-white;
-    }
+  &:hover,
+  &:focus {
+    background-color: $main;
+    color: $main-white;
+  }
 }
