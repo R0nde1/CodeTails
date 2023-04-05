@@ -37,11 +37,15 @@
     display: flex;
     flex-direction: row;
     gap: 60px;
+   
     // margin-left: 43px;
 }
 }
 
 .header-nav__item {
+        display: flex;
+        // padding-top: 12px;
+        // padding-bottom: 12px;        
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
         font-size: 18px;
@@ -181,6 +185,7 @@ body.dark-theme {
 
 .fav__list {
     position: absolute;
+    margin-top: 10px;
     border: 1px solid $main;
     border-radius: 4px;
     width: 210px;
@@ -210,7 +215,7 @@ body.dark-theme {
 // !Burger
 
 .btn__burger-menu {
-    // padding-top: 10px;
+    padding-top: 10px;
     padding-bottom: 10px;
     width: 40px;
     height: 40px;

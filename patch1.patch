@@ -1,0 +1,354 @@
+diff --git a/src/fav-cocktails.html b/src/fav-cocktails.html
+index d12c776..0ce668b 100644
+--- a/src/fav-cocktails.html
++++ b/src/fav-cocktails.html
+@@ -5,7 +5,6 @@
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Code-Tails</title>
+     <link rel="stylesheet" href="./sass/index.scss" />
+-    <script type="module" src="./index.js"></script>
+   </head>
+ 
+   <body>
+@@ -15,14 +14,17 @@
+     <include src="./partials/modal-ingredients.html"></include>
+ 
+     <section class="container">
+-      <div class="favorite">
++      <div class="favorite" data-page="fav-cocktails">
+         <h2 class="fav__title">Favorite cocktails</h2>
+-        <ul class="content-results"></ul>
++        <ul class="favorite-results"></ul>
+ 
+         <!-- Cocktail cards -->
+       </div>
+     </section>
+     <include src="./partials/footer.html"></include>
++    
++    <script src="./index.js" type="module" ></script>
+     <script src="./js/fav-cocktails.js" type="module"></script>
++    <script src="./js/search.js" type="module"></script>
+   </body>
+ </html>
+diff --git a/src/fav-ingredients.html b/src/fav-ingredients.html
+index c86cadd..0d69a77 100644
+--- a/src/fav-ingredients.html
++++ b/src/fav-ingredients.html
+@@ -5,7 +5,6 @@
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Code-Tails</title>
+     <link rel="stylesheet" href="./sass/index.scss" />
+-    <script type="module" src="./index.js"></script>
+   </head>
+ 
+   <body>
+@@ -17,11 +16,13 @@
+     <section class="container">
+       <div class="favorite" data-page="fav-ingredients">
+         <h2 id="fav-title" class="fav__title">Favorite ingredients</h2>
+-        <ul class="content-results"></ul>
++        <ul class="favorite-results"></ul>
+       </div>
+     </section>
+ 
+     <include src="./partials/footer.html"></include>
+-    <script src="js/fav-ingredients.js" type="module"></script>
++    <script src="./index.js" type="module"></script>
++    <script src="./js/fav-ingredients.js" type="module"></script>
++    <script src="./js/search.js" type="module"></script>
+   </body>
+ </html>
+diff --git a/src/index.html b/src/index.html
+index 27b629c..566253b 100755
+--- a/src/index.html
++++ b/src/index.html
+@@ -18,7 +18,7 @@
+   <body>
+     <!-- ❗️❗️❗️ Add partials like so for every page -->
+     <include src="./partials/header.html"></include>
+-    <main>
++    <main data-page="main">
+       <include src="./partials/hero.html"></include>
+       <include src="./partials/main.html"></include>
+     </main>
+@@ -33,6 +33,6 @@
+ 
+     <script src='./js/up.js' type="module"></script>
+     <script src="./js/search.js" type="module"></script>
+-    <script type="module" src="./index.js"></script>    
++    <script src="./index.js" type="module"></script>    
+   </body>
+ </html>
+diff --git a/src/js/fav-cocktails.js b/src/js/fav-cocktails.js
+index b8ab7af..1f69ccf 100644
+--- a/src/js/fav-cocktails.js
++++ b/src/js/fav-cocktails.js
+@@ -2,7 +2,7 @@ import { getDrinksMarkup } from './get-drinks-markup';
+ import { fetchCocktailById } from './fetch-cocktails';
+ import { FavoriteStorage } from './favorite-storage';
+ 
+-const favContent = document.querySelector('.content-results');
++const favContent = document.querySelector('.favorite-results');
+ const noFoundCocktail = `<p class="favorite__none">
+ You haven't added any <br>favorite cocktails yet</p>`;
+ 
+diff --git a/src/js/fav-ingredients.js b/src/js/fav-ingredients.js
+index 89792e1..cc7cfd4 100644
+--- a/src/js/fav-ingredients.js
++++ b/src/js/fav-ingredients.js
+@@ -2,7 +2,7 @@ import { getDrinksMarkupIngredients } from './get-ingredients-markup';
+ import { fetchIngredientByName } from './fetch-cocktails';
+ import { FavoriteStorage } from './favorite-storage';
+ 
+-const favContent = document.querySelector('.content-results');
++const favContent = document.querySelector('.favorite-results');
+ const noFoundIngredients = `<p class="favorite__none">
+ You haven't added any <br>favorite ingredients yet</p>`;
+ 
+@@ -21,8 +21,6 @@ async function getIngredientsData() {
+   const promises = makePromises();
+   const data = await Promise.all(promises).catch(error => console.log(error));
+ 
+-  console.log(data);
+-
+   if (data.length === 0) {
+     favContent.innerHTML = noFoundIngredients;
+       return;
+diff --git a/src/js/get-drinks-markup.js b/src/js/get-drinks-markup.js
+index efffef5..d32c972 100644
+--- a/src/js/get-drinks-markup.js
++++ b/src/js/get-drinks-markup.js
+@@ -1,8 +1,4 @@
+ import { showDrinkModal } from './modal-cocktails';
+-import servingDesk from '../img/serving_desk.png';
+-import servingDesk2 from '../img/serving_desk@2x.png';
+-import servingMob from '../img/serving_mob.png';
+-import servingMob2 from '../img/serving_mob@2x.png';
+ import heartIcon from 'bundle-text:../img/heart-icon.svg';
+ import { FavoriteStorage } from "./favorite-storage";
+ 
+@@ -31,21 +27,7 @@ function getCardMarkup(name, imageSrc, id) {
+     li.addEventListener('click', handleCardClick);
+     return li;
+ }
+-export function getErrorMarkup() {
+-    return `<li><picture>
+-        <source
+-        media="(min-width: 768px)"
+-        srcset="${servingDesk}, ${servingDesk2} 2x"
+-        type="image/png"/>
+-        <source
+-        media="(max-width: 767px)"
+-        srcset="${servingMob}, ${servingMob2} 2x"
+-        type="image/png"/>
+-        <img src="${servingDesk}" alt="People in the cafe" width="345" height="380"/>
+-        </picture>
+-        </li>
+-    `;
+-}
++
+ export function handleCardClick(event) {
+     const buttonName = event.target.dataset.name;
+     if (buttonName === 'learn-more') {
+@@ -65,4 +47,4 @@ export function handleCardClick(event) {
+             btnText.textContent = "Remove";
+         }
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/src/js/get-error-markup.js b/src/js/get-error-markup.js
+new file mode 100644
+index 0000000..34ae64f
+--- /dev/null
++++ b/src/js/get-error-markup.js
+@@ -0,0 +1,20 @@
++import servingDesk from '../img/serving_desk.png';
++import servingDesk2 from '../img/serving_desk@2x.png';
++import servingMob from '../img/serving_mob.png';
++import servingMob2 from '../img/serving_mob@2x.png';
++
++export function getErrorMarkup() {
++    return `<li><picture>
++        <source
++        media="(min-width: 768px)"
++        srcset="${servingDesk}, ${servingDesk2} 2x"
++        type="image/png"/>
++        <source
++        media="(max-width: 767px)"
++        srcset="${servingMob}, ${servingMob2} 2x"
++        type="image/png"/>
++        <img src="${servingDesk}" alt="People in the cafe" width="345" height="380"/>
++        </picture>
++        </li>
++    `;
++}
+diff --git a/src/js/letters.js b/src/js/letters.js
+index aa430e1..1341c86 100644
+--- a/src/js/letters.js
++++ b/src/js/letters.js
+@@ -1,7 +1,8 @@
+ import { fetchCocktailsByLetter } from './fetch-cocktails';
+ import { calculateCocktails } from './calculate';
+-import { getDrinksMarkup, getErrorMarkup } from './get-drinks-markup';
++import { getDrinksMarkup } from './get-drinks-markup';
+ import { createPagination } from './pagination';
++import { getErrorMarkup } from './get-error-markup';
+ 
+ const contentResults = document.querySelector('#content-results');
+ const contentTitle = document.querySelector('#content-title');
+diff --git a/src/js/main.js b/src/js/main.js
+index d78a7eb..bd14980 100644
+--- a/src/js/main.js
++++ b/src/js/main.js
+@@ -1,14 +1,47 @@
+ import { calculateCocktails } from './calculate';
+-import { fetchRandomCocktails } from './fetch-cocktails';
++import { fetchRandomCocktails, fetchCocktailsByName } from './fetch-cocktails';
+ import { getDrinksMarkup } from './get-drinks-markup';
++import { SearchStorage } from './search-storage';
++import { calculateCocktails } from './calculate';
++import { createPagination } from './pagination';
++import { getErrorMarkup } from './get-error-markup';
+ 
+ const contentResults = document.querySelector('#content-results');
+ const contentTitle = document.querySelector('#content-title');
++const searchFields = document.querySelectorAll('.search-form__input');
+ 
+ let numberOfCocktails = calculateCocktails();
+ 
+-fetchRandomCocktails(numberOfCocktails).then(data => {
+-  contentTitle.innerHTML = 'Cocktails';
++const searchValue = SearchStorage.getSearch();
++
++if(searchValue) {
++  searchFields[0].value = searchValue;
++  searchFields[1].value = searchValue;
++  contentTitle.innerHTML = 'Searching results..';
+   contentResults.innerHTML = '';
+-  contentResults.append(...getDrinksMarkup(data));
+-});
++
++  fetchCocktailsByName(searchValue)
++  .then(data => {
++    contentTitle.innerHTML = 'Cocktails';
++    contentResults.innerHTML = "";
++    contentResults.append ( ...getDrinksMarkup(
++      data.slice(0, numberOfCocktails)
++    ));
++    createPagination(
++      data,
++      numberOfCocktails,
++      1
++    );
++    SearchStorage.cleanStorage();
++  })
++  .catch((error) => {
++    contentTitle.innerHTML = error
++    contentResults.innerHTML = getErrorMarkup()
++  });
++} else {
++  fetchRandomCocktails(numberOfCocktails).then(data => {
++    contentTitle.innerHTML = 'Cocktails';
++    contentResults.innerHTML = '';
++    contentResults.append(...getDrinksMarkup(data));
++  });
++}
+diff --git a/src/js/search-storage.js b/src/js/search-storage.js
+new file mode 100644
+index 0000000..3e5700b
+--- /dev/null
++++ b/src/js/search-storage.js
+@@ -0,0 +1,12 @@
++export const SearchStorage = {
++    storageKey: 'search-storage',
++    getSearch() {
++        return JSON.parse(localStorage.getItem(this.storageKey));
++    },
++    setSearch(searchQuery) {
++        localStorage.setItem(this.storageKey, JSON.stringify(searchQuery));
++    },
++    cleanStorage() {
++        localStorage.removeItem(this.storageKey);
++    }
++}
+diff --git a/src/js/search.js b/src/js/search.js
+index b249800..c3bb602 100644
+--- a/src/js/search.js
++++ b/src/js/search.js
+@@ -1,13 +1,14 @@
+ import { calculateCocktails } from './calculate';
+ import { fetchCocktailsByName } from './fetch-cocktails';
+-import { getDrinksMarkup, getErrorMarkup } from './get-drinks-markup';
++import { getDrinksMarkup } from './get-drinks-markup';
++import { getErrorMarkup } from './get-error-markup';
+ import { createPagination } from './pagination';
++import { SearchStorage } from './search-storage';
+ 
+ const searchForms = document.querySelectorAll('.search-form');
+ const contentResults = document.querySelector('#content-results');
+ const contentTitle = document.querySelector('#content-title');
+ 
+-
+ const mainSearch = searchForms[0];
+ const mobSearch = searchForms[1];
+ 
+@@ -16,14 +17,24 @@ mobSearch.addEventListener('submit', getCocktails);
+ 
+ mainSearch.addEventListener('input', () => {
+   mobSearch.elements.search.value = mainSearch.elements.search.value;
++  SearchStorage.setSearch(mainSearch.elements.search.value);
+ });
+ 
+ mobSearch.addEventListener('input', () => {
+   mainSearch.elements.search.value = mobSearch.elements.search.value;
++  SearchStorage.setSearch(mobSearch.elements.search.value);
+ });
+ 
+ function getCocktails(event) {
+   event.preventDefault();
++  
++  const isHomePage = document.querySelector('[data-page="main"]');
++
++  if (!isHomePage) {
++    window.location = '/';
++    return;
++  }
++
+   const cocktailName = event.target.elements.search.value;
+ 
+   contentTitle.innerHTML = 'Searching results..';
+@@ -48,5 +59,3 @@ function getCocktails(event) {
+       contentResults.innerHTML = getErrorMarkup()
+     });
+ }
+-
+-
+diff --git a/src/partials/main.html b/src/partials/main.html
+index b2f1810..62d0c1c 100644
+--- a/src/partials/main.html
++++ b/src/partials/main.html
+@@ -23,4 +23,4 @@
+     </svg>
+   </div>
+ 
+-<script src="js/main.js" type="module"></script>
+\ No newline at end of file
++<script src="./js/main.js" type="module"></script>
+diff --git a/src/sass/layout/_main.scss b/src/sass/layout/_main.scss
+index 7c36390..9dfc1cb 100644
+--- a/src/sass/layout/_main.scss
++++ b/src/sass/layout/_main.scss
+@@ -1,4 +1,4 @@
+-.content-results {
++.content-results, .favorite-results {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+@@ -68,4 +68,4 @@ body.dark-theme {
+   stroke: $main-active;
+   stroke-width: 4px;
+   transition: 0.3s;
+-}
+\ No newline at end of file
++}
