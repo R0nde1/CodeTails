@@ -224,3 +224,16 @@
     color: $main-white;
     }           
  }
+
+ .dark-theme {
+  & .modal-footer{
+    background-color: $main-black;
+    color: $main-white;
+    }   
+    & .modal__text{
+      color: $main-white;
+    }   
+    & .footer__title{
+      color: $main;
+    }     
+ }
