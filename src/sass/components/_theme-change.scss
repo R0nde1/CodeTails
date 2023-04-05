@@ -30,6 +30,9 @@
     & .btn__burger-icon {
       fill: $main-white;
     }
+    & .fav__select-img{
+      fill: $main-white;
+    }
     & .fav__select-input.header-nav__element {
       color: $main-white;
       &:hover {
@@ -138,10 +141,7 @@
   }
 }
 
-
-
 //modal-ingredients
-
 
 .dark-theme {
   & .ingredients {
@@ -212,31 +212,30 @@
 //burger
 
 .dark-theme {
-       & .fav__select-input__mm{
-        background-color: $main-black;
-         color: $main-white;
+  & .fav__select-input__mm{
+    background-color: $main-black;
+    color: $main-white;
                      }   
-       & .burger-menu{
-        background-color: $main-black;
-        color: $main-white;
+  & .burger-menu{
+    background-color: $main-black;
+    color: $main-white;
            }   
    & .header-nav__item__mm {
-            &:hover {
-              color:$main;
-             }
-           &:focus {
-              color:$main;
-             }
+    &:hover {
+    color:$main;
+    }
+    &:focus {
+    color:$main;
+    }
            }          
-                            }
-  //favorit
+ }
+  //favorite
 
 .dark-theme {
   & .fav__title{
     color: $main-white;
-                } 
+    } 
  & .favorite__none{
     color: $main-white;
-                              }           
-              
-              }
+    }           
+ }
