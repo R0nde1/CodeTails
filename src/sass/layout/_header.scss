@@ -16,21 +16,21 @@
   padding-top: 20px;
   padding-right: 20px;
   padding-left: 20px;
+
+//   @media screen and (min-width: 768px) {
+//     align-items: flex-start;
+//   }
 }
 
 .header__logo {
-  position: relative;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  color: $main;
-  font-size: 22px;
-  line-height: calc(24 / 22);
+  display: flex;
+  padding-bottom: 16px;
+ 
   margin-right: 30px;
 
   // !tablet screen // !desktop screen
   @media screen and (min-width: 768px) {
-    font-size: 28px;
-    line-height: calc(24 / 28);
+    align-items: baseline;
   }
 }
 
