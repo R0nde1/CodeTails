@@ -32,7 +32,7 @@ function getCocktails(event) {
   const isMobileMenuOpen = document.querySelector('.js-menu-container.is-open');
 
   if (!isHomePage || isMobileMenuOpen) {
-    window.location = '/index.html';
+    window.location = './index.html';
     return;
   }
 
