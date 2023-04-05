@@ -2,7 +2,7 @@ import { getDrinksMarkupIngredients } from './get-ingredients-markup';
 import { fetchIngredientByName } from './fetch-cocktails';
 import { FavoriteStorage } from './favorite-storage';
 
-const favContent = document.querySelector('.content-results');
+const favContent = document.querySelector('.favorite-results');
 const noFoundIngredients = `<p class="favorite__none">
 You haven't added any <br>favorite ingredients yet</p>`;
 
@@ -20,8 +20,6 @@ function makePromises() {
 async function getIngredientsData() {
   const promises = makePromises();
   const data = await Promise.all(promises).catch(error => console.log(error));
-
-  console.log(data);
 
   if (data.length === 0) {
     favContent.innerHTML = noFoundIngredients;
