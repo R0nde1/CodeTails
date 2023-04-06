@@ -1,4 +1,5 @@
-.content-results, .favorite-results {
+.content-results,
+.favorite-results {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -12,9 +13,29 @@
   }
 }
 
-#content-title{
-  text-align: center;
+#content-title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: (42 / 22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 60px;
+  text-align: center;
+  width: 320px;
+  margin: auto;
+  @media screen and (min-width: 768px) {
+    width: 333px;
+    font-size: 32px;
+    line-height: (42 / 22);
+  }
+  @media screen and (min-width: 1280px) {
+    width: 493px;
+    font-size: 48px;
+    line-height: (72 / 48);
+  }
 }
 
 body.dark-theme {

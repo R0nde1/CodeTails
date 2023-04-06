@@ -18,7 +18,7 @@ export function fetchCocktailsByName(name) {
   return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
     .then(response => response.json())
     .then(({ drinks }) => {
-      if (!drinks) throw "Sorry, we didn't find<br>any cocktail for you";
+      if (!drinks) throw "Sorry, we didn't find any cocktail for you";
 
       return drinks;
     });
