@@ -28,7 +28,6 @@
  
   margin-right: 30px;
 
-  // !tablet screen // !desktop screen
   @media screen and (min-width: 768px) {
     align-items: baseline;
   }
@@ -37,12 +36,10 @@
 .header-nav__list {
   display: none;
 
-  // !desktop screen
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-direction: row;
     gap: 60px;
-    // margin-left: 43px;
   }
 }
 
@@ -68,9 +65,7 @@
   }
 }
 
-// !!!SWITCHER
 
-// !SWITCH-BUTTON
 
 .toggle-button {
   position: relative;
@@ -122,7 +117,6 @@
   background-color: $main;
 }
 
-// !SWITCH-THEME
 
 .header-theme__list {
   display: flex;
@@ -180,7 +174,6 @@ body.dark-theme {
   color: $main-white;
 }
 
-// !DROPDOWN
 
 .fav__dropdown-item {
   display: flex;
@@ -239,7 +232,6 @@ body.dark-theme {
   }
 }
 
-// !Burger
 
 .btn__burger-menu {
   width: 40px;
