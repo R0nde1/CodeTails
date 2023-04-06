@@ -53,6 +53,7 @@ function getCocktails(event) {
         numberOfCocktails,
         1
       );
+      SearchStorage.cleanStorage();
     })
     .catch((error) => {
       contentTitle.innerHTML = error
