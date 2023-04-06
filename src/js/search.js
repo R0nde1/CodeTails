@@ -32,14 +32,13 @@ function getCocktails(event) {
   const isMobileMenuOpen = document.querySelector('.js-menu-container.is-open');
 
   if (!isHomePage || isMobileMenuOpen) {
-    window.location = '/index.html';
+    window.location = './index.html';
     return;
   }
 
   const cocktailName = event.target.elements.search.value;
 
   contentTitle.innerHTML = 'Searching results..';
-  contentResults.innerHTML = '';
   const numberOfCocktails = calculateCocktails();
 
   fetchCocktailsByName(cocktailName)

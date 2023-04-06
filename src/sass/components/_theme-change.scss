@@ -30,6 +30,9 @@
     & .btn__burger-icon {
       fill: $main-white;
     }
+    & .fav__select-img{
+      fill: $main-white;
+    }
     & .fav__select-input.header-nav__element {
       color: $main-white;
       &:hover {
@@ -42,15 +45,11 @@
     }
   }
 
-
-//hero
 .dark-theme {
   & .choice__label {
     color: $main-white;
     
   }}
-
-  //search
   .dark-theme {
       & .select__header {
         background-color: $main;
@@ -73,7 +72,6 @@
 
   }
 
-  //cocktail-card
   .dark-theme {
       & .btn__add .heart-icon .icon-background {
          fill: $main-black;
@@ -97,7 +95,6 @@
   }
   }
 
-//modal-cockteils
 .dark-theme {
   & .modal {
     background-color: $main-black;
@@ -138,11 +135,6 @@
   }
 }
 
-
-
-//modal-ingredients
-
-
 .dark-theme {
   & .ingredients {
     background-color: $main-black;
@@ -171,9 +163,6 @@
   }
 
 }
-
-//footer
-
 
 .dark-theme {
   & .footer__title {
@@ -208,35 +197,43 @@
         }
                  }
 
-
-//burger
-
 .dark-theme {
-       & .fav__select-input__mm{
-        background-color: $main-black;
-         color: $main-white;
+  & .fav__select-input__mm{
+    background-color: $main-black;
+    color: $main-white;
                      }   
-       & .burger-menu{
-        background-color: $main-black;
-        color: $main-white;
+  & .burger-menu{
+    background-color: $main-black;
+    color: $main-white;
            }   
    & .header-nav__item__mm {
-            &:hover {
-              color:$main;
-             }
-           &:focus {
-              color:$main;
-             }
+    &:hover {
+    color:$main;
+    }
+    &:focus {
+    color:$main;
+    }
            }          
-                            }
-  //favorit
-
+ }
+ 
 .dark-theme {
   & .fav__title{
     color: $main-white;
-                } 
+    } 
  & .favorite__none{
     color: $main-white;
-                              }           
-              
-              }
+    }           
+ }
+
+ .dark-theme {
+  & .modal-footer{
+    background-color: $main-black;
+    color: $main-white;
+    }   
+    & .modal__text{
+      color: $main-white;
+    }   
+    & .footer__title{
+      color: $main-white;
+    }     
+ }

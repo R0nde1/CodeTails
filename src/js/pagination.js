@@ -3,9 +3,11 @@ import { getDrinksMarkup } from "./get-drinks-markup";
 
 let searchResults;
 let contentResults;
+let getMarkup;
 const pagination = document.querySelector('#pagination');
-export function createPagination(results, pageSize, pageNumber) {
-  contentResults = document.querySelector('#content-results')
+export function createPagination(results, pageSize, pageNumber, markupFn) {
+  getMarkup = markupFn ?? getMarkup ?? getDrinksMarkup;
+  contentResults = document.querySelector('.content-results')
   searchResults=results;
   const totalResults=results.length;
   const pagesCount = Math.ceil(totalResults / pageSize);
@@ -52,7 +54,7 @@ function changePage(e) {
   const end = page * numberOfCocktails;
   const start = end - numberOfCocktails;
   contentResults.innerHTML = '';
-  contentResults.append (...getDrinksMarkup(data.slice(start, end)));
+  contentResults.append (...getMarkup(data.slice(start, end)));
   createPagination(data, numberOfCocktails, page);
   
 }
