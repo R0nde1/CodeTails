@@ -237,3 +237,9 @@
       color: $main-white;
     }     
  }
+
+ .dark-theme {
+  & .menu-close__btn{
+    fill: $main;
+  }
+ }
