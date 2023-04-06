@@ -15,6 +15,18 @@
 #content-title{
   text-align: center;
   margin-bottom: 60px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.9;
+  color: $main-black;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.31;
+  }
 }
 
 body.dark-theme {
